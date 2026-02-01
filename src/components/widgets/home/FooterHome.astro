@@ -1,0 +1,136 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { Icon } from 'astro-icon/components';
+
+const { id, isDark = true, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+
+const links = [
+  {
+    title: 'Services',
+    items: [
+      { text: 'Services', href: '#' },
+      { text: 'Industries', href: '#' },
+      { text: 'Page 3', href: '#' },
+    ],
+  },
+  {
+    title: 'Company',
+    items: [
+      { text: 'Page 4', href: '#' },
+      { text: 'Page 5', href: '#' },
+      { text: 'Page 6', href: '#' },
+    ],
+  },
+  {
+    title: 'Legal',
+    items: [
+      { text: 'Page 7', href: '#' },
+      { text: 'Page 8', href: '#' },
+      { text: 'Page 9', href: '#' },
+    ],
+  },
+];
+---
+
+<footer class="relative bg-[#111111] dark:bg-[#030621] text-white py-12 md:py-20 overflow-hidden">
+  {/* Texture Overlay */}
+  <div
+    class="absolute inset-0 opacity-20 pointer-events-none"
+    style="background-image: url('https://www.transparenttextures.com/patterns/stardust.png');"
+  >
+  </div>
+
+  {/* Scrolling Ticker */}
+  <div class="w-full overflow-hidden mb-16 md:mb-24 opacity-30">
+    <div class="whitespace-nowrap animate-marquee flex gap-8">
+      {
+        Array(10)
+          .fill(0)
+          .map(() => (
+            <>
+              <span class="text-xs font-bold tracking-[0.2em]">WEB+++</span>
+              <span class="text-xs font-bold tracking-[0.2em]">AI+++</span>
+              <span class="text-xs font-bold tracking-[0.2em]">MOBILE+++</span>
+            </>
+          ))
+      }
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+      <div>
+        <h2 class="text-4xl md:text-5xl font-serif mb-2">Start up-ready</h2>
+        <h2 class="text-4xl md:text-5xl font-serif italic text-gray-400">products, built fast.</h2>
+      </div>
+
+      <div class="flex flex-col justify-center">
+        <form class="flex w-full max-w-sm ml-auto">
+          <input
+            type="email"
+            placeholder="Email"
+            class="px-4 py-3 bg-white text-gray-900 focus:outline-none flex-grow"
+          />
+          <button
+            type="submit"
+            class="px-6 py-3 bg-gray-200 text-gray-900 font-bold uppercase text-xs tracking-wider hover:bg-white transition-colors"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
+    </div>
+
+    {/* Divider */}
+    <div class="w-full h-px bg-white/10 mb-12"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-end">
+      {/* Brand / Logo Area */}
+      <div class="col-span-1 md:col-start-1">
+        <div
+          class="w-20 h-20 bg-gradient-to-br from-gray-200 to-gray-400 rounded-full flex items-center justify-center shadow-lg mb-8"
+        >
+          <Icon name="tabler:x" class="w-10 h-10 text-gray-900" />
+        </div>
+        <p class="text-xs text-gray-500">© 2025 Cognivac. All rights reserved.</p>
+      </div>
+
+      {/* Links */}
+      <div class="col-span-1 md:col-span-3 grid grid-cols-3 gap-8">
+        {
+          links.map((column) => (
+            <div class="flex flex-col gap-3">
+              {column.items.map((link) => (
+                <a href={link.href} class="text-sm font-medium text-gray-400 hover:text-white transition-colors">
+                  {link.text}
+                </a>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    {/* Social Icons */}
+    <div class="flex justify-end gap-4 mt-8 md:mt-0 md:absolute md:bottom-20 md:right-6">
+      <Icon name="tabler:brand-instagram" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+      <Icon name="tabler:brand-twitter" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+      <Icon name="tabler:brand-youtube" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+      <Icon name="tabler:rss" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+    </div>
+  </div>
+</footer>
+
+<style>
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>

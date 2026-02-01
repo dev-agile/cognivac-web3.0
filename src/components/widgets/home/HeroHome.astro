@@ -1,0 +1,102 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { Icon } from 'astro-icon/components';
+
+const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div class="relative md:pt-0 pt-10 grid md:grid-cols-2 gap-12 items-center min-h-[500px]">
+    {/* Left Content */}
+    <div class="text-left md:pr-8">
+      <div class="mb-4 text-xs font-bold tracking-widest text-[#0148E5] uppercase">Al.Web.Mobile.MVP</div>
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-heading font-serif">
+        Think <span class="italic font-normal">Beyond Digital</span>
+      </h1>
+      <p class="text-lg text-muted mb-8 max-w-lg leading-relaxed">
+        We craft intelligent products and platforms for companies ready to lead the future. From AI-driven experiences
+        to full-scale digital ecosystems, we help you move beyond incremental change and build what's next — faster,
+        smarter, and with purpose.
+      </p>
+    </div>
+
+    {/* Right Abstract Visual */}
+    <div class="relative flex items-center justify-center">
+      <div class="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px]">
+        {/* Soft Gradients */}
+        <div
+          class="absolute inset-0 rounded-full bg-blue-100 mix-blend-multiply filter blur-3xl opacity-50 animate-blob"
+        >
+        </div>
+        <div
+          class="absolute top-0 -right-4 w-72 h-72 rounded-full bg-purple-100 mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"
+        >
+        </div>
+        <div
+          class="absolute -bottom-8 left-20 w-72 h-72 rounded-full bg-indigo-100 mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-4000"
+        >
+        </div>
+
+        {/* Geometric Star Shape (CSS) */}
+        <div class="absolute inset-0 flex items-center justify-center">
+          <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-2xl">
+            <path
+              fill="url(#grad1)"
+              d="M100 0 C110 50 150 90 200 100 C150 110 110 150 100 200 C90 150 50 110 0 100 C50 90 90 50 100 0 Z"
+            ></path>
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(76, 29, 149);stop-opacity:1"></stop>
+                <stop offset="100%" style="stop-color:rgb(124, 58, 237);stop-opacity:1"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        {/* Orbit Lines */}
+        <div class="absolute inset-0 border-[1px] border-purple-200/50 rounded-full scale-100 p-8"></div>
+        <div class="absolute inset-4 border-[1px] border-purple-200/50 rounded-full scale-90 rotate-45 transform"></div>
+      </div>
+    </div>
+  </div>
+
+  {/* Client Logos Strip */}
+  <div class="mt-16 pt-8 border-t border-gray-100">
+    <div
+      class="flex flex-wrap items-center justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+    >
+      {/* Mock Logos - Replace with actual SVGs or Images */}
+      <Icon name="tabler:brand-google" class="w-24 h-8" />
+      <Icon name="tabler:brand-amazon" class="w-24 h-8" />
+      <Icon name="tabler:brand-airbnb" class="w-24 h-8" />
+      <Icon name="tabler:brand-uber" class="w-24 h-8" />
+      <Icon name="tabler:brand-spotify" class="w-24 h-8" />
+    </div>
+  </div>
+</WidgetWrapper>
+
+<style>
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+</style>

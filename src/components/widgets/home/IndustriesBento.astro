@@ -1,0 +1,137 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+
+const industries = [
+  {
+    title: 'Healthcare',
+    description: 'Secure platforms and integrations that improve clinical workflows and patient experience.',
+    icon: '❤️',
+    color: 'text-red-500',
+    colSpan: 'md:col-span-1',
+  },
+  {
+    title: 'Real Estate',
+    description: 'Modern tools for listings, leasing, and property management with smart automation.',
+    icon: '🏙️',
+    color: 'text-blue-500',
+    colSpan: 'md:col-span-1',
+  },
+  {
+    title: 'Manufacturing',
+    description: 'Connected, automated systems that boost uptime, precision, and efficiency.',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop',
+    isImageCard: true,
+    colSpan: 'md:col-span-1 row-span-2',
+  },
+  {
+    title: 'Education',
+    description: 'Scalable learning platforms that improve access, engagement, and outcomes.',
+    icon: '🎓',
+    color: 'text-yellow-500',
+    colSpan: 'md:col-span-1',
+  },
+  {
+    title: 'Travel',
+    description:
+      'We develop cutting-edge software for the logistics industry, including supply chain software with AI/ML-enabled predictive analytics, helping them serve their customers across the globe.',
+    icon: '✈️',
+    color: 'text-green-500',
+    colSpan: 'md:col-span-2',
+  },
+  {
+    title: 'Public Sector',
+    description: 'Modern digital services that enhance citizen experience and operational efficiency.',
+    icon: '🏛️',
+    color: 'text-blue-700',
+    colSpan: 'md:col-span-1',
+  },
+  {
+    title: 'E-commerce',
+    description: 'Personalized shopping experiences optimized from storefront to fulfillment.',
+    icon: '📦',
+    color: 'text-orange-500',
+    colSpan: 'md:col-span-1',
+  },
+  {
+    title: 'Finance & Banking',
+    description:
+      'Compliant, scalable solutions for transactions and digital services. Built for reliability, security, and transparency.',
+    icon: '💰',
+    color: 'text-green-600',
+    colSpan: 'md:col-span-2',
+  },
+  {
+    title: 'Energy & Utilities',
+    description: 'Real-time insights and automation for better performance and sustainable operation.',
+    icon: '⚡',
+    color: 'text-yellow-400',
+    colSpan: 'md:col-span-1',
+  },
+  {
+    title: 'Transport',
+    description: 'Real-time tracking and automation that reduce costs and improve visibility.',
+    icon: '🚚',
+    color: 'text-blue-400',
+    colSpan: 'md:col-span-1',
+  },
+];
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div class="mb-12 flex justify-between items-end">
+    <div>
+      <h2 class="text-4xl md:text-5xl font-bold font-serif mb-4">
+        Industries <span class="font-sans font-bold">we serve</span>
+      </h2>
+      <p class="text-lg text-gray-500">Expert, approachable, and relentlessly useful.</p>
+    </div>
+    <a
+      href="#"
+      class="hidden md:inline-block px-6 py-2 rounded-full border border-gray-300 text-sm font-semibold hover:border-black transition-colors"
+    >
+      Write to us
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+    {/* Featured Card (e.g. Logo/Badge) */}
+    <div
+      class="md:col-span-1 md:row-span-2 flex items-center justify-center p-8 border border-gray-100 rounded-3xl shadow-sm"
+    >
+      <div class="relative w-24 h-24 bg-primary rounded-full flex items-center justify-center shadow-xl">
+        <span class="text-4xl font-serif text-white font-bold">S</span>
+      </div>
+    </div>
+
+    {
+      industries.map((item) => (
+        <div
+          class={`relative rounded-3xl p-6 border border-gray-100 hover:shadow-lg transition-shadow flex flex-col justify-between ${item.colSpan} ${item.isImageCard ? 'overflow-hidden text-white' : 'bg-white'}`}
+        >
+          {item.isImageCard && (
+            <div class="absolute inset-0">
+              <img src={item.image} class="w-full h-full object-cover" alt={item.title} />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+            </div>
+          )}
+
+          <div class="relative z-10 mb-4">
+            <span class={`text-3xl ${item.isImageCard ? 'text-white' : item.color}`}>{item.icon}</span>
+          </div>
+
+          <div class="relative z-10">
+            <h3 class={`text-xl font-serif font-bold mb-2 ${item.isImageCard ? 'text-white' : 'text-gray-900'}`}>{item.title}</h3>
+            <p class={`text-sm leading-relaxed ${item.isImageCard ? 'text-gray-200' : 'text-gray-500'}`}>{item.description}</p>
+          </div>
+        </div>
+      ))
+    }
+
+    {/* Arrow Card */}
+    <div class="md:col-span-1 flex items-center justify-center p-6 border border-gray-100 rounded-3xl bg-gray-50/50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-gray-400" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg>
+    </div>
+  </div>
+</WidgetWrapper>

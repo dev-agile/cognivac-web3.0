@@ -1,0 +1,44 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+
+const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div
+    class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-primary to-secondary px-8 py-16 md:px-16 md:py-20 text-white shadow-2xl"
+  >
+    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
+      <div class="text-left md:w-1/2">
+        <h2 class="text-4xl md:text-5xl font-bold font-serif mb-4 italic">Clarity, Finally</h2>
+        <p class="text-lg text-purple-100 font-medium">You've got questions. We've got answers.</p>
+      </div>
+
+      <div class="md:w-1/2">
+        <p class="text-sm md:text-base text-purple-100 mb-8 leading-relaxed">
+          From "what should we build?" to "how should we scale without breaking things?" — get practical, no-nonsense tech
+          guidance tailored to your business. We help you define the right product, the right architecture, and the right
+          next steps in one focused, free session.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="#"
+            class="px-8 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold hover:bg-white hover:text-primary transition-all text-center"
+          >
+            Claim Free Session
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {/* Decorative Elements */}
+    <div
+      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-overlay filter blur-3xl opacity-50"
+    >
+    </div>
+    <div
+        class="absolute left-1/4 bottom-0 translate-y-1/2 w-96 h-96 bg-indigo-600 rounded-full mix-blend-overlay filter blur-3xl opacity-50"
+    >
+    </div>
+  </div>
+</WidgetWrapper>

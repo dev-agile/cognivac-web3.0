@@ -1,0 +1,135 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import { Icon } from 'astro-icon/components';
+
+const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+
+const testimonials = [
+  {
+    quote:
+      'The AI summary feature saves us hours. We can quickly review tasks and make informed decisions without diving into lengthy reports.',
+    name: 'James Parker',
+    role: 'Operations Lead at TechEdge',
+    image: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80',
+  },
+  {
+    quote:
+      'Cognivac transformed how we approach data. The predictive models are accurate and the dashboards are actually usable by our business teams.',
+    name: 'Sarah Chen',
+    role: 'VP Product at FutureWave',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1061&q=80',
+  },
+  {
+    quote:
+      'We moved from legacy systems to a modern cloud infrastructure in months, not years. The team knows their stuff.',
+    name: 'Michael Ross',
+    role: 'CTO at DataFlow',
+    image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
+  },
+];
+
+const stats = [
+  { amount: '100%', label: 'Increase in Progress Tracking' },
+  { amount: '10X', label: 'Increase in Productivity' },
+  { amount: '98%', label: 'Client Satisfaction Rate' },
+];
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div class="text-center mb-16">
+    <div class="inline-flex items-center rounded-full border border-gray-800 bg-gray-800 text-white px-4 py-1.5 text-xs font-medium mb-6">
+      Users Feedback
+    </div>
+    <h2 class="text-4xl md:text-5xl font-bold font-serif text-heading">
+      What Our <span class="italic font-serif">Users</span> Say
+    </h2>
+  </div>
+
+  <div class="relative max-w-4xl mx-auto mb-20" id="testimonials-slider">
+    <div class="relative overflow-hidden p-8 md:p-12 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 min-h-[300px] flex items-center justify-center text-center">
+      {
+        testimonials.map((item, index) => (
+          <div
+            class={`testimonial-slide transition-opacity duration-500 absolute inset-0 flex flex-col justify-center items-center px-12 md:px-20 ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+            data-index={index}
+          >
+            <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">"{item.quote}"</p>
+            <div class="flex items-center gap-4 text-left">
+              <img src={item.image} alt={item.name} class="w-12 h-12 rounded-full object-cover" />
+              <div>
+                <div class="font-bold text-gray-900">{item.name}</div>
+                <div class="text-sm text-gray-500">{item.role}</div>
+              </div>
+            </div>
+            {/* Close Button Mockup */}
+             <div class="absolute bottom-8 right-8 bg-black text-white w-8 h-8 flex items-center justify-center rounded-md cursor-pointer hover:bg-gray-800 transition-colors">
+                 <Icon name="tabler:x" class="w-4 h-4" />
+             </div>
+          </div>
+        ))
+      }
+    </div>
+
+    {/* Navigation */}
+    <button
+      id="prev-slide"
+      class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm focus:outline-none"
+    >
+      <Icon name="tabler:chevron-left" class="w-5 h-5 text-gray-400" />
+    </button>
+    <button
+      id="next-slide"
+      class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 w-10 h-10 rounded-full bg-primary flex items-center justify-center hover:bg-secondary transition-colors shadow-lg shadow-blue-200 focus:outline-none"
+    >
+      <Icon name="tabler:chevron-right" class="w-5 h-5 text-white" />
+    </button>
+  </div>
+
+  {/* Stats Divider Line */}
+  <div class="w-full h-px bg-gray-100 mb-12"></div>
+
+  {/* Stats */}
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100">
+    {
+      stats.map((stat) => (
+        <div class="pt-8 md:pt-0">
+          <div class="text-5xl font-bold text-gray-900 mb-2">{stat.amount}</div>
+          <div class="text-gray-500 text-sm">{stat.label}</div>
+        </div>
+      ))
+    }
+  </div>
+</WidgetWrapper>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const prevBtn = document.getElementById('prev-slide');
+    const nextBtn = document.getElementById('next-slide');
+    let currentIndex = 0;
+
+    const showSlide = (index) => {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.remove('opacity-0', 'z-0');
+          slide.classList.add('opacity-100', 'z-10');
+        } else {
+          slide.classList.remove('opacity-100', 'z-10');
+          slide.classList.add('opacity-0', 'z-0');
+        }
+      });
+    };
+
+    if (slides.length > 0) {
+        nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+        });
+
+        prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+        });
+    }
+  });
+</script>
