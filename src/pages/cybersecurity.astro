@@ -1,0 +1,360 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Next-Gen SOC Platform (Trexa) | Cognivac — Think Beyond Digital',
+  description:
+    'Next-Gen SOC Platform for a Modern Threat Landscape. Powered by Agentic AI. Designed for Autonomous Defense. Experience the future of cyber defense.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Next-Gen SOC Platform"
+    actions={[
+      { variant: 'primary', text: 'Experience the Future of Cyber Defense', href: '/contact' },
+      { text: 'Learn More', href: '#overview' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1639322537228-f710d846310a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Next-Gen SOC Platform',
+    }}
+  >
+    <Fragment slot="title">
+      Next-Gen SOC Platform for a <span class="text-accent dark:text-white">Modern Threat Landscape</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Powered by <span class="font-semibold">Agentic AI</span>. Designed for <span class="font-semibold"
+        >Autonomous Defense</span
+      >.
+    </Fragment>
+  </Hero>
+
+  <!-- Platform Overview ************ -->
+
+  <Content
+    id="overview"
+    isReversed
+    items={[
+      {
+        title: 'Unified Visibility',
+        description: 'Complete visibility across your entire environment — cloud, endpoints, identity, and network.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Autonomous Investigation',
+        description: 'AI-driven investigation that analyzes threats independently and makes contextual decisions.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'AI-Driven Detection',
+        description: 'Threat detection with human-like reasoning powered by advanced machine learning.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Predictive Analytics',
+        description: 'Continuous learning and predictive analytics that evolve with the threat landscape.',
+        icon: 'tabler:chart-line',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'SOC Platform Overview',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        A New Era of Security Operations
+      </h3>
+      <p class="text-lg text-muted mb-4">
+        Your SOC doesn't need more alerts — it needs <span class="font-semibold"
+          >intelligence, automation, and autonomy</span
+        >.
+      </p>
+      <p class="text-muted">
+        The <span class="font-semibold">Next-Gen SOC Platform (Trexa)</span> uses <span class="font-semibold"
+          >Agentic AI</span
+        > to transform traditional security operations into a <span class="font-semibold"
+          >self-improving, self-orchestrating cyber defense ecosystem</span
+        >.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Agentic AI Explanation ******* -->
+
+  <Features2
+    title="What Is an Agentic AI SOC?"
+    subtitle="AI that doesn't just assist. It acts."
+    columns={2}
+    items={[
+      {
+        title: 'Independently Analyzes Threats',
+        description: 'Understands attacker intent and behavior without human intervention.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Takes Contextual Decisions',
+        description: 'Makes intelligent decisions based on full context and threat intelligence.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Collaborates Across Tools',
+        description: 'Correlates signals across cloud, endpoints, identity, and network seamlessly.',
+        icon: 'tabler:network',
+      },
+      {
+        title: 'Orchestrates Response Workflows',
+        description: 'Runs autonomous playbooks in seconds and escalates only real incidents.',
+        icon: 'tabler:robot',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Strategic Benefits *********** -->
+
+  <Stats
+    title="Stronger Security. Lower Workload. Faster Outcomes."
+    stats={[
+      { title: 'Reduce False Positives', amount: '70%' },
+      { title: 'Response Time', amount: 'Seconds' },
+      { title: 'Task Automation', amount: '80%' },
+      { title: 'Seamless Integration', amount: '100%' },
+    ]}
+  />
+
+  <Features3
+    columns={2}
+    items={[
+      {
+        title: 'Reduce False Positives by up to 70%',
+        description: 'AI-powered triage filters noise instantly, allowing your team to focus on real threats.',
+        icon: 'tabler:filter',
+      },
+      {
+        title: 'Respond to Threats in Seconds, Not Hours',
+        description: 'Autonomous remediation closes gaps before attackers exploit them.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Seamless Integration with Existing Tools',
+        description: 'Works with SIEM, EDR, cloud providers, and identity platforms out of the box.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Scale Without Increasing Headcount',
+        description: 'AI automates up to 80% of repetitive SOC tasks, enabling lean teams to operate efficiently.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+  />
+
+  <!-- Key Platform Capabilities **** -->
+
+  <Features2
+    title="Key Platform Capabilities"
+    subtitle="Enterprise-grade security operations powered by Agentic AI"
+    columns={3}
+    items={[
+      {
+        title: 'AI-Powered Threat Detection',
+        description: 'Real-time detection using behavioral analytics, threat intelligence, and LLM-based reasoning.',
+        icon: 'tabler:radar',
+      },
+      {
+        title: 'Autonomous Response Engine',
+        description:
+          'Automatic containment, isolation, policy enforcement, and remediation without manual intervention.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Unified SOC Dashboard',
+        description: 'End-to-end visibility with correlated incidents and AI-generated insights in one place.',
+        icon: 'tabler:dashboard',
+      },
+      {
+        title: 'Threat Hunting Assistant',
+        description: 'Agentic AI proactively hunts suspicious patterns and attack paths across your environment.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Compliance & Risk Management',
+        description: 'Automated reporting and continuous security posture assessment for regulatory compliance.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Continuous Learning',
+        description: 'Platform adapts and improves with every interaction, staying ahead of evolving threats.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Use Cases ******************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'SOC Modernization',
+        description: 'Upgrade from manual processes to autonomous security operations.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Cloud Security',
+        description: 'AI-driven monitoring for multi-cloud and hybrid environments.',
+        icon: 'tabler:cloud-lock',
+      },
+      {
+        title: 'Identity Threat Detection',
+        description: 'Prevent credential abuse, privilege escalation, and account takeover.',
+        icon: 'tabler:user-shield',
+      },
+      {
+        title: 'Ransomware Defense',
+        description: 'Detect lateral movement early and contain automatically.',
+        icon: 'tabler:lock',
+      },
+      {
+        title: 'MSSP / MSP SOC Automation',
+        description: 'Deliver faster, higher-quality security services at scale.',
+        icon: 'tabler:building-store',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Use Cases',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Use Cases</h3>
+      <p class="text-muted">
+        From SOC modernization to ransomware defense, our platform adapts to your unique security challenges.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Why Choose Us **************** -->
+
+  <Features2
+    title="Why Choose Us?"
+    subtitle="Built by Security Experts. Powered by Advanced AI."
+    columns={3}
+    items={[
+      {
+        title: 'Adapts Continuously',
+        description: 'Platform evolves with your environment and the threat landscape.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Learns from Every Interaction',
+        description: 'AI improves detection and response with each incident.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Enhances Analyst Productivity',
+        description: 'Automates repetitive tasks so analysts focus on strategic work.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Reduces Operational Cost',
+        description: 'Lower costs through automation and improved efficiency.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Increases SOC Efficiency',
+        description: 'Faster detection, investigation, and response times.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Improves Accuracy',
+        description: 'AI-driven analysis reduces false positives and missed threats.',
+        icon: 'tabler:target',
+      },
+    ]}
+  />
+
+  <!-- About / Vision / Mission ***** -->
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'About Us',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-4">
+        Built for the Future of Cyber Defense
+      </h3>
+      <p class="text-lg font-semibold text-muted mb-4">
+        We're not just another cybersecurity company. We're a movement.
+      </p>
+
+      <p class="text-muted mb-4">We started with a simple belief:</p>
+
+      <blockquote class="border-l-4 border-primary pl-4 italic text-lg text-muted mb-6">
+        Security shouldn't be slow, manual, or reactive.<br />
+        It should be autonomous. Intelligent. Effortless.
+      </blockquote>
+
+      <p class="text-muted mb-6">
+        So we built a platform that flips the old SOC model on its head — powered by <span class="font-semibold"
+          >Agentic AI</span
+        > that thinks, learns, and acts like a world-class analyst at machine speed.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🌟 Our Vision</h4>
+      <p class="text-muted mb-4">
+        To create a world where <span class="font-semibold">security operations run themselves</span> — so teams can focus
+        on what actually matters.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🎯 Our Mission</h4>
+      <p class="text-muted">
+        To reinvent security operations by merging Agentic AI, autonomous response, human-grade reasoning, and real-time
+        threat intelligence. We empower <span class="font-semibold">lean teams</span>, <span class="font-semibold"
+          >growing teams</span
+        >, and <span class="font-semibold">enterprise teams</span> to operate like a <span class="font-semibold"
+          >world-class SOC</span
+        >.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule a Demo',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'Learn More',
+        href: '/about',
+      },
+    ]}
+    title="Ready to Transform Your Security Operations?"
+    subtitle="Experience the power of Agentic AI and autonomous defense. Contact us today to see Trexa in action."
+  />
+</Layout>

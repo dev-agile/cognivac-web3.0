@@ -66,6 +66,10 @@ export const headerData = {
       ],
     },
     {
+      text: 'Cybersecurity',
+      href: '/cybersecurity',
+    },
+    {
       text: 'About',
       href: '/about',
     },
