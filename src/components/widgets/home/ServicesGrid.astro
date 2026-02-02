@@ -1,5 +1,6 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Image from '~/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 
 import aiEngineerImg from '~/assets/images/ai-engineer.png';
@@ -18,7 +19,7 @@ interface ServiceItem {
   title: string;
   description: string;
   icon?: string;
-  image?: { src: string };
+  image?: ImageMetadata;
   colSpan?: string;
   rowSpan?: string;
   bgClass?: string;
@@ -92,8 +93,8 @@ const services: ServiceItem[] = [
         >
           {item.layout === 'feature' && item.image && (
             <div class="flex-shrink-0 max-w-[298px] max-h-[252px] w-full aspect-[4/3] overflow-hidden rounded-t-xl">
-              <img
-                src={item.image.src}
+              <Image
+                src={item.image}
                 alt={item.title}
                 class="w-full h-full object-cover rounded-xl transition-transform duration-500 hover:scale-105"
               />
@@ -103,8 +104,8 @@ const services: ServiceItem[] = [
           {item.layout === 'side-image' && item.image && (
             <div class="flex flex-1 min-h-0 p-6 gap-4 md:flex-row flex-col">
               <div class="flex-shrink-0 max-w-[298px] max-h-[252px] w-full aspect-square md:max-h-none overflow-hidden rounded-xl">
-                <img
-                  src={item.image.src}
+                <Image
+                  src={item.image}
                   alt={item.title}
                   class="w-full h-full object-cover rounded-xl transition-transform duration-500 hover:scale-105"
                 />

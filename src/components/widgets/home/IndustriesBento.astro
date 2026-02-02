@@ -1,5 +1,6 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Image from '~/components/common/Image.astro';
 
 const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
 
@@ -112,7 +113,7 @@ const industries = [
         >
           {item.isImageCard && (
             <div class="absolute inset-0">
-              <img src={item.image} class="w-full h-full object-cover" alt={item.title} />
+              <Image src={item.image} class="w-full h-full object-cover" alt={item.title} />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             </div>
           )}
