@@ -88,10 +88,7 @@ const tabs = [
       <div class="border border-gray-200 rounded-2xl p-2 h-full">
         {
           tabs.map((tab, index) => (
-            <div
-              id={tab.id}
-              class={`tab-content h-full flex flex-col ${index === 0 ? '' : 'hidden'}`}
-            >
+            <div id={tab.id} class={`tab-content h-full flex flex-col ${index === 0 ? '' : 'hidden'}`}>
               <div class="relative h-64 overflow-hidden rounded-xl mb-6">
                 <img src={tab.image} alt={tab.title} class="w-full h-full object-cover" />
               </div>
@@ -104,15 +101,15 @@ const tabs = [
                 <p class="text-gray-600 text-sm leading-relaxed mb-8 flex-grow">{tab.content}</p>
 
                 <div class="flex items-center justify-between mt-auto">
-                    <div class="flex gap-4 text-xs font-medium text-gray-500">
-                        <span>Delivered by our in-house AI engineers</span>
-                        <span class="font-bold text-black">Typical launch to POC 4-6 weeks</span>
-                    </div>
-                    <div class="flex gap-2">
-                        {tab.tags.map(tag => (
-                            <span class="px-3 py-1 rounded-full border border-gray-300 text-[10px] text-gray-600">{tag}</span>
-                        ))}
-                    </div>
+                  <div class="flex gap-4 text-xs font-medium text-gray-500">
+                    <span>Delivered by our in-house AI engineers</span>
+                    <span class="font-bold text-black">Typical launch to POC 4-6 weeks</span>
+                  </div>
+                  <div class="flex gap-2">
+                    {tab.tags.map((tag) => (
+                      <span class="px-3 py-1 rounded-full border border-gray-300 text-[10px] text-gray-600">{tag}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

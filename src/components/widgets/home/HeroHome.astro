@@ -9,11 +9,17 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
   <div class="relative md:pt-0 pt-10 grid md:grid-cols-2 gap-12 items-center min-h-[500px]">
     {/* Left Content */}
     <div class="text-left md:pr-8">
-      <div class="mb-4 text-xs font-bold tracking-widest text-[#0148E5] uppercase">Al.Web.Mobile.MVP</div>
-      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-heading font-serif">
-        Think <span class="italic font-normal">Beyond Digital</span>
+      <div class="hero-tagline font-bold text-[24px] leading-[108px] tracking-[0.15em] text-heading">
+        AI.Web.Mobile.MVP
+      </div>
+      <h1 class="flex flex-wrap items-baseline gap-x-2 text-heading">
+        <span class="hero-think font-bold text-[64px] leading-[108px]">Think</span>
+        <span class="italic font-normal text-[72px] leading-[108px]">Beyond Digital</span>
       </h1>
-      <p class="text-lg text-muted mb-8 max-w-lg leading-relaxed">
+      <!-- <h1 class="text-4xl md:text-5xl font-bold font-serif mb-4">
+        Think <span class="italic font-normal">Beyond Digital</span>
+      </h1> -->
+      <p class="hero-desc font-normal text-[20px] leading-[32px] text-muted mb-8 max-w-lg">
         We craft intelligent products and platforms for companies ready to lead the future. From AI-driven experiences
         to full-scale digital ecosystems, we help you move beyond incremental change and build what's next — faster,
         smarter, and with purpose.
@@ -63,19 +69,53 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
   {/* Client Logos Strip */}
   <div class="mt-16 pt-8 border-t border-gray-100">
     <div
-      class="flex flex-wrap items-center justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+      class="flex flex-wrap items-center justify-between gap-6 md:gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
     >
-      {/* Mock Logos - Replace with actual SVGs or Images */}
-      <Icon name="tabler:brand-google" class="w-24 h-8" />
-      <Icon name="tabler:brand-amazon" class="w-24 h-8" />
-      <Icon name="tabler:brand-airbnb" class="w-24 h-8" />
-      <Icon name="tabler:brand-uber" class="w-24 h-8" />
-      <Icon name="tabler:brand-spotify" class="w-24 h-8" />
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-google" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Google</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-amazon" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Amazon</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-airbnb" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Airbnb</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-uber" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Uber</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-spotify" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Spotify</span>
+      </div>
     </div>
   </div>
+
+  {/* Gradient fade below logos */}
+  <div class="hero-logos-gradient h-16 w-full shrink-0" aria-hidden="true"></div>
 </WidgetWrapper>
 
 <style>
+  .hero-tagline,
+  .hero-desc {
+    font-family: 'Inter Variable', Inter, ui-sans-serif, sans-serif;
+  }
+  .hero-think {
+    font-family: Almarai, ui-sans-serif, sans-serif;
+    font-weight: 700;
+  }
+  .hero-beyond {
+    font-family: 'Cormorant Garamond', ui-serif, serif;
+    font-weight: 600;
+  }
+
+  .hero-logos-gradient {
+    background: linear-gradient(to top, rgba(23, 46, 168, 0.05), #ffffff);
+  }
+
   .animate-blob {
     animation: blob 7s infinite;
   }

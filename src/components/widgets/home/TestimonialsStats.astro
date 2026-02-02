@@ -10,21 +10,24 @@ const testimonials = [
       'The AI summary feature saves us hours. We can quickly review tasks and make informed decisions without diving into lengthy reports.',
     name: 'James Parker',
     role: 'Operations Lead at TechEdge',
-    image: 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80',
+    image:
+      'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1760&q=80',
   },
   {
     quote:
       'Cognivac transformed how we approach data. The predictive models are accurate and the dashboards are actually usable by our business teams.',
     name: 'Sarah Chen',
     role: 'VP Product at FutureWave',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1061&q=80',
+    image:
+      'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1061&q=80',
   },
   {
     quote:
       'We moved from legacy systems to a modern cloud infrastructure in months, not years. The team knows their stuff.',
     name: 'Michael Ross',
     role: 'CTO at DataFlow',
-    image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
+    image:
+      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
   },
 ];
 
@@ -37,7 +40,9 @@ const stats = [
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <div class="text-center mb-16">
-    <div class="inline-flex items-center rounded-full border border-gray-800 bg-gray-800 text-white px-4 py-1.5 text-xs font-medium mb-6">
+    <div
+      class="inline-flex items-center rounded-full border border-gray-800 bg-gray-800 text-white px-4 py-1.5 text-xs font-medium mb-6"
+    >
       Users Feedback
     </div>
     <h2 class="text-4xl md:text-5xl font-bold font-serif text-heading">
@@ -46,7 +51,9 @@ const stats = [
   </div>
 
   <div class="relative max-w-4xl mx-auto mb-20" id="testimonials-slider">
-    <div class="relative overflow-hidden p-8 md:p-12 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 min-h-[300px] flex items-center justify-center text-center">
+    <div
+      class="relative overflow-hidden p-8 md:p-12 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 min-h-[300px] flex items-center justify-center text-center"
+    >
       {
         testimonials.map((item, index) => (
           <div
@@ -62,9 +69,9 @@ const stats = [
               </div>
             </div>
             {/* Close Button Mockup */}
-             <div class="absolute bottom-8 right-8 bg-black text-white w-8 h-8 flex items-center justify-center rounded-md cursor-pointer hover:bg-gray-800 transition-colors">
-                 <Icon name="tabler:x" class="w-4 h-4" />
-             </div>
+            <div class="absolute bottom-8 right-8 bg-black text-white w-8 h-8 flex items-center justify-center rounded-md cursor-pointer hover:bg-gray-800 transition-colors">
+              <Icon name="tabler:x" class="w-4 h-4" />
+            </div>
           </div>
         ))
       }
@@ -121,15 +128,15 @@ const stats = [
     };
 
     if (slides.length > 0) {
-        nextBtn?.addEventListener('click', () => {
+      nextBtn?.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % slides.length;
         showSlide(currentIndex);
-        });
+      });
 
-        prevBtn?.addEventListener('click', () => {
+      prevBtn?.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
         showSlide(currentIndex);
-        });
+      });
     }
   });
 </script>
