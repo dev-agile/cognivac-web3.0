@@ -1,8 +1,8 @@
 ---
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import { Icon } from 'astro-icon/components';
 
-const { id, isDark = true, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+import vectorLogo from '~/assets/images/Vector.png';
+import Image from '~/components/common/Image.astro';
 
 const links = [
   {
@@ -58,22 +58,22 @@ const links = [
   </div>
 
   <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+    {/* Top: headline left, email + Sign Up right */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 items-center">
       <div>
-        <h2 class="text-4xl md:text-5xl font-serif mb-2">Start up-ready</h2>
-        <h2 class="text-4xl md:text-5xl font-serif italic text-gray-400">products, built fast.</h2>
+        <h2 class="footer-headline-1 text-white mb-2">Start up-ready</h2>
+        <h2 class="footer-headline-2 text-white">products, built fast.</h2>
       </div>
-
-      <div class="flex flex-col justify-center">
-        <form class="flex w-full max-w-sm ml-auto">
+      <div class="flex flex-col justify-center md:items-end">
+        <form class="flex w-full max-w-sm gap-2 md:ml-auto">
           <input
             type="email"
             placeholder="Email"
-            class="px-4 py-3 bg-white text-gray-900 focus:outline-none flex-grow"
+            class="px-4 py-3 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:outline-none flex-grow min-w-0"
           />
           <button
             type="submit"
-            class="px-6 py-3 bg-gray-200 text-gray-900 font-bold uppercase text-xs tracking-wider hover:bg-white transition-colors"
+            class="px-6 py-3 rounded-lg bg-white text-black font-bold uppercase text-xs tracking-wider hover:bg-gray-100 transition-colors shrink-0"
           >
             Sign Up
           </button>
@@ -82,46 +82,65 @@ const links = [
     </div>
 
     {/* Divider */}
-    <div class="w-full h-px bg-white/10 mb-12"></div>
+    <div class="w-full h-px bg-white/20 mb-12" aria-hidden="true"></div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 items-end">
-      {/* Brand / Logo Area */}
-      <div class="col-span-1 md:col-start-1">
-        <div
-          class="w-20 h-20 bg-gradient-to-br from-gray-200 to-gray-400 rounded-full flex items-center justify-center shadow-lg mb-8"
-        >
-          <Icon name="tabler:x" class="w-10 h-10 text-gray-900" />
+    <div class="flex flex-row justify-between gap-16">
+      {/* Brand / Copyright */}
+      <div class="col-span-1 md:col-start-1 flex flex-col items-center">
+        <div class="w-36 h-36 rounded-full flex items-center justify-center mb-4 overflow-hidden shadow-lg shrink-0">
+          <Image src={vectorLogo.src} alt="Cognivac" class="w-full h-full object-contain" />
         </div>
-        <p class="text-xs text-gray-500">© 2025 Cognivac. All rights reserved.</p>
+        <p class="text-xs text-gray-400">© 2026 Cognivac. All rights reserved.</p>
       </div>
 
       {/* Links */}
-      <div class="col-span-1 md:col-span-3 grid grid-cols-3 gap-8">
-        {
-          links.map((column) => (
-            <div class="flex flex-col gap-3">
-              {column.items.map((link) => (
-                <a href={link.href} class="text-sm font-medium text-gray-400 hover:text-white transition-colors">
-                  {link.text}
-                </a>
-              ))}
-            </div>
-          ))
-        }
-      </div>
-    </div>
+      <div class="flex flex-col justify-between w-[70%]">
+        <div class="flex flex-row justify-between gap-8">
+          {
+            links.map((column) => (
+              <div class="flex flex-col gap-3">
+                {column.items.map((link) => (
+                  <a href={link.href} class="text-sm text-gray-400 hover:text-white transition-colors">
+                    {link.text}
+                  </a>
+                ))}
+              </div>
+            ))
+          }
+        </div>
 
-    {/* Social Icons */}
-    <div class="flex justify-end gap-4 mt-8 md:mt-0 md:absolute md:bottom-20 md:right-6">
-      <Icon name="tabler:brand-instagram" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-      <Icon name="tabler:brand-twitter" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-      <Icon name="tabler:brand-youtube" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
-      <Icon name="tabler:rss" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+        {/* Social Icons - bottom right on desktop */}
+        <div class="flex justify-start md:justify-end gap-4 mt-8 md:mt-0">
+          <Icon name="tabler:brand-instagram" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+          <Icon name="tabler:brand-twitter" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+          <Icon name="tabler:brand-youtube" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+          <Icon name="tabler:rss" class="w-5 h-5 text-gray-400 hover:text-white cursor-pointer" />
+        </div>
+      </div>
     </div>
   </div>
 </footer>
 
 <style>
+  /* Heading line 1: Almarai, 400, 48px, line-height 72px */
+  .footer-headline-1 {
+    font-family: Almarai, ui-sans-serif, sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 72px;
+    letter-spacing: 0;
+  }
+
+  /* Heading line 2: Cormorant Garamond, 500, italic, 64px, line-height 72px */
+  .footer-headline-2 {
+    font-family: 'Cormorant Garamond', ui-serif, serif;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 64px;
+    line-height: 72px;
+    letter-spacing: 0;
+  }
+
   .animate-marquee {
     animation: marquee 30s linear infinite;
   }
