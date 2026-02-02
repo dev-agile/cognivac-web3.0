@@ -41,36 +41,43 @@ const stats = [
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <div class="text-center mb-16">
     <div
-      class="inline-flex items-center rounded-full border border-gray-800 bg-gray-800 text-white px-4 py-1.5 text-xs font-medium mb-6"
+      class="inline-flex items-center rounded-full border border-gray-800 bg-gray-800 text-white px-4 py-2 text-base font-bold mb-6"
     >
       Users Feedback
     </div>
-    <h2 class="text-4xl md:text-5xl font-bold font-serif text-heading">
+    <!-- <h2 class="text-4xl md:text-5xl font-bold font-serif text-heading">
       What Our <span class="italic font-serif">Users</span> Say
-    </h2>
+    </h2> -->
+    <h1 class="flex flex-wrap items-baseline justify-center gap-x-2 hero-think">
+      <span class="font-[700] text-[64px] leading-[108px]">What Our {' '}</span>
+      <span class="font-normal italic text-[72px] leading-[108px]">{' '} Users {' '}</span>
+      <span class="font-[700] text-[64px] leading-[108px]">{' '} Say</span>
+    </h1>
   </div>
 
   <div class="relative max-w-4xl mx-auto mb-20" id="testimonials-slider">
     <div
-      class="relative overflow-hidden p-8 md:p-12 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 min-h-[300px] flex items-center justify-center text-center"
+      class="relative overflow-hidden bg-white rounded-3xl max-w-xl mx-auto shadow-[0_8px_30px_rgb(0,0,0,0.4)] border border-gray-100 min-h-[300px] flex items-center justify-center"
     >
       {
         testimonials.map((item, index) => (
           <div
-            class={`testimonial-slide transition-opacity duration-500 absolute inset-0 flex flex-col justify-center items-center px-12 md:px-20 ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+            class={`testimonial-slide transition-opacity duration-500 absolute inset-0 flex flex-col justify-center items-center p-8 ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
             data-index={index}
           >
-            <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">"{item.quote}"</p>
-            <div class="flex items-center gap-4 text-left">
-              <img src={item.image} alt={item.name} class="w-12 h-12 rounded-full object-cover" />
-              <div>
-                <div class="font-bold text-gray-900">{item.name}</div>
-                <div class="text-sm text-gray-500">{item.role}</div>
+            <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 ">"{item.quote}"</p>
+            <div class="flex items-center justify-between gap-4 w-full border-t p-4">
+              <div class="flex items-center gap-4 text-left">
+                <img src={item.image} alt={item.name} class="w-12 h-12 rounded-full object-cover" />
+                <div>
+                  <div class="font-bold text-gray-900">{item.name}</div>
+                  <div class="text-sm text-gray-500">{item.role}</div>
+                </div>
               </div>
-            </div>
-            {/* Close Button Mockup */}
-            <div class="absolute bottom-8 right-8 bg-black text-white w-8 h-8 flex items-center justify-center rounded-md cursor-pointer hover:bg-gray-800 transition-colors">
-              <Icon name="tabler:x" class="w-4 h-4" />
+              {/* Close Button Mockup */}
+              <div class="bg-black text-white w-8 h-8 flex items-center justify-center rounded-md cursor-pointer hover:bg-gray-800 transition-colors">
+                <Icon name="tabler:x" class="w-4 h-4" />
+              </div>
             </div>
           </div>
         ))
