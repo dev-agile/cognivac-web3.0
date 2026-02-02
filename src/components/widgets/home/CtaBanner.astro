@@ -6,16 +6,16 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <div
-    class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-primary to-secondary px-8 py-16 md:px-16 md:py-20 text-white shadow-2xl"
+    class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-primary to-secondary px-8 py-9 text-white shadow-2xl"
   >
-    <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-10">
-      <div class="text-left md:w-1/2">
+    <div class="relative z-10 flex flex-col md:flex-row md:items-start gap-2">
+      <div class="text-left w-full md:w-[35%] md:flex-shrink-0">
         <h2 class="text-4xl md:text-5xl font-bold font-serif mb-4 italic">Clarity, Finally</h2>
         <p class="text-lg text-purple-100 font-medium">You've got questions. We've got answers.</p>
       </div>
 
-      <div class="md:w-1/2">
-        <p class="text-sm md:text-base text-purple-100 mb-8 leading-relaxed">
+      <div class="w-full md:w-[65%] md:flex-shrink-0 min-w-0">
+        <p class="text-sm md:text-base text-purple-100 mb-6 leading-relaxed">
           From "what should we build?" to "how should we scale without breaking things?" — get practical, no-nonsense
           tech guidance tailored to your business. We help you define the right product, the right architecture, and the
           right next steps in one focused, free session.
