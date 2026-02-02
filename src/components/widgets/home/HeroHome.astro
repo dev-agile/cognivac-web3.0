@@ -9,11 +9,14 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
   <div class="relative md:pt-0 pt-10 grid md:grid-cols-2 gap-12 items-center min-h-[500px]">
     {/* Left Content */}
     <div class="text-left md:pr-8">
-      <div class="mb-4 text-xs font-bold tracking-widest text-[#0148E5] uppercase">Al.Web.Mobile.MVP</div>
-      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 text-heading font-serif">
-        Think <span class="italic font-normal">Beyond Digital</span>
+      <div class="hero-tagline font-bold text-[24px] leading-[108px] tracking-[0.15em] text-heading">
+        AI.Web.Mobile.MVP
+      </div>
+      <h1 class="flex flex-wrap items-baseline gap-x-2 text-heading">
+        <span class="hero-think font-bold text-[64px] leading-[108px]">Think</span>
+        <span class="italic font-normal text-[72px] leading-[108px]">Beyond Digital</span>
       </h1>
-      <p class="text-lg text-muted mb-8 max-w-lg leading-relaxed">
+      <p class="hero-desc font-normal text-[20px] leading-[32px] text-muted mb-8 max-w-lg">
         We craft intelligent products and platforms for companies ready to lead the future. From AI-driven experiences
         to full-scale digital ecosystems, we help you move beyond incremental change and build what's next — faster,
         smarter, and with purpose.
@@ -76,6 +79,19 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
 </WidgetWrapper>
 
 <style>
+  .hero-tagline,
+  .hero-desc {
+    font-family: 'Inter Variable', Inter, ui-sans-serif, sans-serif;
+  }
+  .hero-think {
+    font-family: Almarai, ui-sans-serif, sans-serif;
+    font-weight: 700;
+  }
+  .hero-beyond {
+    font-family: 'Cormorant Garamond', ui-serif, serif;
+    font-weight: 600;
+  }
+
   .animate-blob {
     animation: blob 7s infinite;
   }
