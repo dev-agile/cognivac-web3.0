@@ -3,7 +3,7 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 
 import statsBgImage from '~/assets/images/pexels-eva-bronzini.png';
 
-const { id, isDark = true, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+const { id, isDark = true, classes = {} } = Astro.props;
 
 interface Stat {
   amount: string;
@@ -31,16 +31,6 @@ const stats: Stat[] = [
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`relative ${classes?.container ?? ''}`}>
-  <!-- <div
-  class="relative overflow-hidden rounded-3xl px-6 py-16 md:px-12 md:py-24"
-  style={`background-image: 
-    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-    url('${statsBgImage.src}');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  `}
-> -->
   <!-- Background: image + overlay (rendered in template so image import is resolved) -->
   <Fragment slot="bg">
     <div
@@ -82,5 +72,4 @@ const stats: Stat[] = [
       ))
     }
   </div>
-  <!-- </div> -->
 </WidgetWrapper>
