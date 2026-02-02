@@ -2,15 +2,27 @@
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import { Icon } from 'astro-icon/components';
 
+import aiEngineerImg from '~/assets/images/ai-engineer.png';
+import customSoftwareImg from '~/assets/images/custom-software.png';
+import defaultImg from '~/assets/images/diogo-nunes.png';
+
 const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+
+function titleParts(title: string) {
+  const i = title.lastIndexOf(' ');
+  if (i === -1) return { lead: title, italic: '' };
+  return { lead: title.slice(0, i + 1), italic: title.slice(i + 1) };
+}
 
 interface ServiceItem {
   title: string;
   description: string;
   icon?: string;
-  image?: string;
+  image?: { src: string };
   colSpan?: string;
+  rowSpan?: string;
   bgClass?: string;
+  layout?: 'feature' | 'side-image' | 'text-only';
 }
 
 const services: ServiceItem[] = [
@@ -19,46 +31,49 @@ const services: ServiceItem[] = [
     description:
       'We create custom, production-ready AI — not demos — with solid MLOps, reliable inference, and features that drive real business impact.',
     colSpan: 'md:col-span-1',
-    bgClass: 'bg-blue-50/50',
-    image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1000&auto=format&fit=crop', // Blue Tech
+    rowSpan: 'md:row-span-2',
+    bgClass: 'bg-indigo-50',
+    image: aiEngineerImg,
+    layout: 'feature',
   },
   {
     title: 'Custom Software',
     description:
       'Custom systems for your workflows — reliable APIs, dashboards, and integration that drive your business.',
-    colSpan: 'md:col-span-2',
-    bgClass: 'bg-gray-100/50',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop', // Dashboard
+    colSpan: 'md:col-span-1',
+    bgClass: 'bg-gray-50',
+    image: customSoftwareImg,
+    layout: 'side-image',
   },
   {
     title: 'Blockchain Engineering',
     description:
       'Secure, product-driven smart contracts, tokens, and dApps — deployed on the chains that fit your goals.',
     colSpan: 'md:col-span-1',
-    bgClass: 'bg-green-50/50',
+    bgClass: 'bg-emerald-50',
+    layout: 'text-only',
   },
   {
     title: 'Mobile App Development',
     description:
       'Pixel-perfect UX, great performance, and quick launch. We build apps that feel delightful, integrate cleanly, and evolve with data.',
     colSpan: 'md:col-span-1',
-    bgClass: 'bg-yellow-50/50',
+    bgClass: 'bg-gray-50',
+    layout: 'text-only',
   },
   {
     title: 'Cloud & Ops',
     description: 'Reliable, efficient cloud infrastructure that makes ops boring and teams fast.',
-    colSpan: 'md:col-span-2',
-    bgClass: 'bg-purple-50/50',
-    image: 'https://images.unsplash.com/photo-1558494949-efc02584299b?q=80&w=1000&auto=format&fit=crop', // Servers
+    colSpan: 'md:col-span-1',
+    bgClass: 'bg-indigo-50',
+    image: defaultImg,
+    layout: 'side-image',
   },
 ];
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <div class="mb-12">
-    <!-- <h2 class="text-4xl md:text-5xl font-bold font-serif mb-4">
-      Own the <span class="italic font-normal">digital frontier</span>
-    </h2> -->
     <h1 class="flex flex-wrap items-baseline gap-x-2 hero-think">
       <span class="font-[700] text-[64px] leading-[108px]">Own the </span>
       <span class="font-normal italic text-[72px] leading-[108px]">digital frontier</span>
@@ -69,51 +84,96 @@ const services: ServiceItem[] = [
     </p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-6 auto-rows-fr">
     {
-      services.map((item, index) => (
+      services.map((item) => (
         <div
-          class={`relative group rounded-2xl overflow-hidden p-8 transition-all hover:shadow-lg ${item.bgClass} ${item.colSpan}`}
+          class={`relative flex flex-col rounded-xl overflow-hidden transition-all hover:shadow-lg ${item.bgClass} ${item.colSpan} ${item.rowSpan ?? ''}`}
         >
-          {item.image && (
-            <div
-              class={
-                index === 0 || index === 4
-                  ? 'mb-6 h-48 w-full overflow-hidden rounded-xl'
-                  : 'absolute right-0 top-0 bottom-0 w-1/3 opacity-20'
-              }
-            >
-              {index === 0 || index === 4 ? (
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              ) : (
-                index === 1 && <img src={item.image} alt={item.title} class="w-full h-full object-cover object-left" />
-              )}
+          {item.layout === 'feature' && item.image && (
+            <div class="flex-shrink-0 max-w-[298px] max-h-[252px] w-full aspect-[4/3] overflow-hidden rounded-t-xl">
+              <img
+                src={item.image.src}
+                alt={item.title}
+                class="w-full h-full object-cover rounded-xl transition-transform duration-500 hover:scale-105"
+              />
             </div>
           )}
 
-          <div class="relative z-10 flex flex-col items-start h-full">
-            <h3 class="text-2xl font-bold mb-3 font-serif">
-              {item.title.includes(' ') ? (
-                <>
-                  {item.title.split(' ')[0]}
-                  <span class="italic font-normal font-serif">{item.title.substring(item.title.indexOf(' ') + 1)}</span>
-                </>
-              ) : (
-                item.title
-              )}
-            </h3>
-            <p class="text-muted text-sm mb-6 flex-grow">{item.description}</p>
-            <a
-              href="#"
-              class="font-bold text-sm text-heading hover:text-primary transition-colors inline-flex items-center"
-            >
-              Know more <Icon name="tabler:arrow-right" class="w-4 h-4 ml-1" />
-            </a>
-          </div>
+          {item.layout === 'side-image' && item.image && (
+            <div class="flex flex-1 min-h-0 p-6 gap-4 md:flex-row flex-col">
+              <div class="flex-shrink-0 max-w-[298px] max-h-[252px] w-full aspect-square md:max-h-none overflow-hidden rounded-xl">
+                <img
+                  src={item.image.src}
+                  alt={item.title}
+                  class="w-full h-full object-cover rounded-xl transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div class="flex flex-col flex-1 min-w-0 pt-0 md:pt-0">
+                <h3 class="text-xl font-bold mb-2 font-serif">
+                  {titleParts(item.title).italic ? (
+                    <>
+                      {titleParts(item.title).lead}
+                      <span class="italic font-normal font-serif">{titleParts(item.title).italic}</span>
+                    </>
+                  ) : (
+                    item.title
+                  )}
+                </h3>
+                <p class="text-muted text-sm mb-4 flex-grow">{item.description}</p>
+                <a
+                  href="#"
+                  class="font-bold text-sm text-heading hover:text-primary transition-colors inline-flex items-center mt-auto"
+                >
+                  Know more <Icon name="tabler:arrow-right" class="w-4 h-4 ml-1" />
+                </a>
+              </div>
+            </div>
+          )}
+
+          {item.layout === 'text-only' && (
+            <div class="flex flex-col p-6 h-full">
+              <h3 class="text-xl font-bold mb-2 font-serif">
+                {titleParts(item.title).italic ? (
+                  <>
+                    {titleParts(item.title).lead}
+                    <span class="italic font-normal font-serif">{titleParts(item.title).italic}</span>
+                  </>
+                ) : (
+                  item.title
+                )}
+              </h3>
+              <p class="text-muted text-sm mb-4 flex-grow">{item.description}</p>
+              <a
+                href="#"
+                class="font-bold text-sm text-heading hover:text-primary transition-colors inline-flex items-center mt-auto"
+              >
+                Know more <Icon name="tabler:arrow-right" class="w-4 h-4 ml-1" />
+              </a>
+            </div>
+          )}
+
+          {item.layout === 'feature' && (
+            <div class="flex flex-col p-6 min-h-0">
+              <h3 class="text-2xl font-bold mb-3 font-serif">
+                {titleParts(item.title).italic ? (
+                  <>
+                    {titleParts(item.title).lead}
+                    <span class="italic font-normal font-serif">{titleParts(item.title).italic}</span>
+                  </>
+                ) : (
+                  item.title
+                )}
+              </h3>
+              <p class="text-muted text-sm mb-6 flex-grow">{item.description}</p>
+              <a
+                href="#"
+                class="font-bold text-sm text-heading hover:text-primary transition-colors inline-flex items-center"
+              >
+                Know more <Icon name="tabler:arrow-right" class="w-4 h-4 ml-1" />
+              </a>
+            </div>
+          )}
         </div>
       ))
     }

@@ -12,7 +12,9 @@ const tabs = [
     content:
       'We build end-to-end predictive systems—forecasting, churn scoring, risk models, and demand intelligence—so your product can make smarter decisions automatically. Our work includes clean data pipelines, rigorous validation, fast inference services, and dashboards that teams actually use to track performance and impact.',
     tags: ['AI', 'LLM', 'ML'],
-    image: 'https://images.unsplash.com/photo-1535378437323-95288ac925b9?q=80&w=1000&auto=format&fit=crop',
+    // image: 'https://images.unsplash.com/photo-1535378437323-95288ac925b9?q=80&w=1000&auto=format&fit=crop',
+    image:
+      'https://images.unsplash.com/photo-1597423498219-04418210827d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'tab2',
@@ -48,10 +50,14 @@ const tabs = [
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <div class="mb-12 flex justify-between items-end">
-    <h2 class="text-4xl md:text-5xl font-bold font-serif">
+  <div class="mb-12 flex justify-between items-center">
+    <!-- <h2 class="text-4xl md:text-5xl font-bold font-serif">
       Intelligence <span class="font-sans font-bold">that performs</span>
-    </h2>
+    </h2> -->
+    <h1 class="flex flex-wrap items-baseline gap-x-2 hero-think">
+      <span class="font-normal italic text-[72px] leading-[108px]">Intelligence{' '}</span>
+      <span class="font-[700] text-[64px] leading-[108px]">that performs</span>
+    </h1>
     <a
       href="#"
       class="hidden md:inline-block px-6 py-2 rounded-full border border-gray-300 text-sm font-semibold hover:border-primary hover:text-primary transition-colors"
@@ -60,7 +66,7 @@ const tabs = [
     </a>
   </div>
 
-  <div class="flex flex-col lg:flex-row gap-12" id="intelligence-tabs">
+  <div class="flex flex-col lg:flex-row gap-12 items-center" id="intelligence-tabs">
     {/* Tabs List */}
     <div class="w-full lg:w-1/3 flex flex-col">
       {
@@ -70,12 +76,10 @@ const tabs = [
             data-target={tab.id}
           >
             <div class="flex items-start">
-              <span class="text-xs font-bold text-gray-400 mr-4 mt-1">0{index + 1}</span>
+              <span class="tab-num text-gray-600 mr-4 mt-0.5">0{index + 1}</span>
               <div>
-                <h3 class="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors">
-                  {tab.label}
-                </h3>
-                <p class="text-sm text-gray-500 mt-1">{tab.subLabel}</p>
+                <h3 class="tab-title text-gray-900 group-hover:text-primary transition-colors">{tab.label}</h3>
+                <p class="tab-desc text-gray-600 mt-1">{tab.subLabel}</p>
               </div>
             </div>
           </button>
@@ -96,14 +100,19 @@ const tabs = [
                 <h3 class="text-xl font-bold mb-1 font-serif">
                   <span class="font-sans font-medium text-gray-500">AI that</span>{' '}
                   <span class="italic font-serif">{tab.title.split('—')[0]}</span> —{' '}
-                  <span class="text-black font-bold">{tab.title.split('—')[1] || 'Impact'}</span>
+                  <span class="text-gray-500 font-bold">{tab.title.split('—')[1] || 'Impact'}</span>
                 </h3>
                 <p class="text-gray-600 text-sm leading-relaxed mb-8 flex-grow">{tab.content}</p>
 
                 <div class="flex items-center justify-between mt-auto">
                   <div class="flex gap-4 text-xs font-medium text-gray-500">
                     <span>Delivered by our in-house AI engineers</span>
-                    <span class="font-bold text-black">Typical launch to POC 4-6 weeks</span>
+                    <span class="font-bold text-black">
+                      Typical launch to POC <span class="text-gray-500 font-normal">4-6 weeks</span>
+                    </span>
+                    <span class="font-bold text-black">
+                      Read <span class="text-gray-500 font-normal">1 Min</span>
+                    </span>
                   </div>
                   <div class="flex gap-2">
                     {tab.tags.map((tag) => (
@@ -130,12 +139,10 @@ const tabs = [
       triggers.forEach((trigger) => {
         trigger.addEventListener('click', () => {
           // Remove active state from all triggers
-          triggers.forEach((t) => t.classList.remove('active', 'border-black'));
-          triggers.forEach((t) => t.querySelector('h3')?.classList.remove('text-primary'));
+          triggers.forEach((t) => t.classList.remove('active'));
 
           // Add active state to clicked trigger
-          trigger.classList.add('active', 'border-black');
-          trigger.querySelector('h3')?.classList.add('text-primary');
+          trigger.classList.add('active');
 
           // Hide all content
           contents.forEach((c) => c.classList.add('hidden'));
@@ -157,10 +164,40 @@ const tabs = [
 </script>
 
 <style>
+  /* Tab number */
+  .tab-num {
+    font-family: Almarai, ui-sans-serif, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0;
+  }
+
+  /* Tab title: unselected (light) */
+  .tab-title {
+    font-family: Almarai, ui-sans-serif, sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0;
+  }
+
+  /* Tab title: selected (bold) */
+  .tab-trigger.active .tab-title {
+    font-weight: 700;
+    color: var(--aw-color-primary);
+  }
+
   .tab-trigger.active {
     border-color: black;
   }
-  .tab-trigger.active h3 {
-    color: var(--aw-color-primary);
+
+  /* Tab description (selected and unselected) */
+  .tab-desc {
+    font-family: Inter, 'Inter Variable', ui-sans-serif, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 160%;
+    letter-spacing: 0;
   }
 </style>
