@@ -66,14 +66,28 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
   {/* Client Logos Strip */}
   <div class="mt-16 pt-8 border-t border-gray-100">
     <div
-      class="flex flex-wrap items-center justify-between gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
+      class="flex flex-wrap items-center justify-between gap-6 md:gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
     >
-      {/* Mock Logos - Replace with actual SVGs or Images */}
-      <Icon name="tabler:brand-google" class="w-24 h-8" />
-      <Icon name="tabler:brand-amazon" class="w-24 h-8" />
-      <Icon name="tabler:brand-airbnb" class="w-24 h-8" />
-      <Icon name="tabler:brand-uber" class="w-24 h-8" />
-      <Icon name="tabler:brand-spotify" class="w-24 h-8" />
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-google" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Google</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-amazon" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Amazon</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-airbnb" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Airbnb</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-uber" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Uber</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <Icon name="tabler:brand-spotify" class="h-8 w-8 flex-shrink-0" />
+        <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">Spotify</span>
+      </div>
     </div>
   </div>
 </WidgetWrapper>
