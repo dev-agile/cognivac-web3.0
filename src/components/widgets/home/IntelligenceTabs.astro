@@ -90,14 +90,14 @@ const tabs = [
 
     {/* Tab Content */}
     <div class="w-full lg:w-2/3">
-      <div class="border border-gray-200 rounded-2xl p-2 h-full">
+      <div class="border border-gray-200 rounded-2xl p-4 h-full">
         {
           tabs.map((tab, index) => (
             <div id={tab.id} class={`tab-content h-full flex flex-col ${index === 0 ? '' : 'hidden'}`}>
               <div class="relative h-64 overflow-hidden rounded-xl mb-6">
                 <Image src={tab.image} alt={tab.title} class="w-full h-full object-cover" />
               </div>
-              <div class="p-6 flex-grow flex flex-col">
+              <div class="flex-grow flex flex-col">
                 <h3 class="text-xl font-bold mb-1 font-serif">
                   <span class="font-sans font-medium text-gray-500">AI that</span>{' '}
                   <span class="italic font-serif">{tab.title.split('—')[0]}</span> —{' '}
