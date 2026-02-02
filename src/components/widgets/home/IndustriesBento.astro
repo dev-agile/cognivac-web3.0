@@ -1,37 +1,28 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Image from '~/components/common/Image.astro';
 
 const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
 
+// Order matches bento grid layout: S card → row1: Real Estate, Manufacturing(tall), Travel(wide) → row2: Healthcare(tall), Education, Public Sector, E-commerce → row3–4: Finance(large), Energy, Transport → Arrow
 const industries = [
-  {
-    title: 'Healthcare',
-    description: 'Secure platforms and integrations that improve clinical workflows and patient experience.',
-    icon: '❤️',
-    color: 'text-red-500',
-    colSpan: 'md:col-span-1',
-  },
   {
     title: 'Real Estate',
     description: 'Modern tools for listings, leasing, and property management with smart automation.',
     icon: '🏙️',
     color: 'text-blue-500',
+    image:
+      'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     colSpan: 'md:col-span-1',
+    rowSpan: '',
   },
   {
     title: 'Manufacturing',
     description: 'Connected, automated systems that boost uptime, precision, and efficiency.',
+    icon: '🏭',
+    color: 'text-orange-500',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop',
-    isImageCard: true,
-    colSpan: 'md:col-span-1 row-span-2',
-  },
-  {
-    title: 'Education',
-    description: 'Scalable learning platforms that improve access, engagement, and outcomes.',
-    icon: '🎓',
-    color: 'text-yellow-500',
     colSpan: 'md:col-span-1',
+    rowSpan: 'md:row-span-2',
   },
   {
     title: 'Travel',
@@ -39,21 +30,50 @@ const industries = [
       'We develop cutting-edge software for the logistics industry, including supply chain software with AI/ML-enabled predictive analytics, helping them serve their customers across the globe.',
     icon: '✈️',
     color: 'text-green-500',
+    image:
+      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
     colSpan: 'md:col-span-2',
+    rowSpan: '',
+  },
+  {
+    title: 'Healthcare',
+    description: 'Secure platforms and integrations that improve clinical workflows and patient experience.',
+    icon: '❤️',
+    color: 'text-red-500',
+    image:
+      'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+    colSpan: 'md:col-span-1',
+    rowSpan: 'md:row-span-2',
+  },
+  {
+    title: 'Education',
+    description: 'Scalable learning platforms that improve access, engagement, and outcomes.',
+    icon: '🎓',
+    color: 'text-yellow-500',
+    image:
+      'https://images.unsplash.com/photo-1658248165252-71e116af1b34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80',
+    colSpan: 'md:col-span-1',
+    rowSpan: '',
   },
   {
     title: 'Public Sector',
     description: 'Modern digital services that enhance citizen experience and operational efficiency.',
     icon: '🏛️',
     color: 'text-blue-700',
+    image:
+      'https://images.unsplash.com/photo-1597423498219-04418210827d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80',
     colSpan: 'md:col-span-1',
+    rowSpan: '',
   },
   {
     title: 'E-commerce',
     description: 'Personalized shopping experiences optimized from storefront to fulfillment.',
     icon: '📦',
     color: 'text-orange-500',
+    image:
+      'https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2174&q=80',
     colSpan: 'md:col-span-1',
+    rowSpan: '',
   },
   {
     title: 'Finance & Banking',
@@ -61,21 +81,30 @@ const industries = [
       'Compliant, scalable solutions for transactions and digital services. Built for reliability, security, and transparency.',
     icon: '💰',
     color: 'text-green-600',
+    image:
+      'https://images.unsplash.com/photo-1593510987046-1f8fcfc512a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     colSpan: 'md:col-span-2',
+    rowSpan: 'md:row-span-2',
   },
   {
     title: 'Energy & Utilities',
     description: 'Real-time insights and automation for better performance and sustainable operation.',
     icon: '⚡',
     color: 'text-yellow-400',
+    image:
+      'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
     colSpan: 'md:col-span-1',
+    rowSpan: '',
   },
   {
     title: 'Transport',
     description: 'Real-time tracking and automation that reduce costs and improve visibility.',
     icon: '🚚',
     color: 'text-blue-400',
+    image:
+      'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
     colSpan: 'md:col-span-1',
+    rowSpan: '',
   },
 ];
 ---
@@ -83,10 +112,14 @@ const industries = [
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <div class="mb-12 flex justify-between items-end">
     <div>
-      <h2 class="text-4xl md:text-5xl font-bold font-serif mb-4">
+      <!-- <h2 class="text-4xl md:text-5xl font-bold font-serif mb-4">
         Industries <span class="font-sans font-bold">we serve</span>
-      </h2>
-      <p class="text-lg text-gray-500">Expert, approachable, and relentlessly useful.</p>
+      </h2> -->
+      <h1 class="flex flex-wrap items-baseline justify-center gap-x-2 hero-think">
+        <span class="font-normal italic text-[72px] leading-[108px]">Industries {' '}</span>
+        <span class="font-[700] text-[64px] leading-[108px]">{' '} we serve</span>
+      </h1>
+      <p class="industries-tagline text-gray-500">Expert, approachable, and relentlessly useful.</p>
     </div>
     <a
       href="#"
@@ -98,35 +131,36 @@ const industries = [
 
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
     {/* Featured Card (e.g. Logo/Badge) */}
-    <div
+    <!-- <div
       class="md:col-span-1 md:row-span-2 flex items-center justify-center p-8 border border-gray-100 rounded-3xl shadow-sm"
     >
       <div class="relative w-24 h-24 bg-primary rounded-full flex items-center justify-center shadow-xl">
         <span class="text-4xl font-serif text-white font-bold">S</span>
       </div>
-    </div>
+    </div> -->
 
     {
       industries.map((item) => (
         <div
-          class={`relative rounded-3xl p-6 border border-gray-100 hover:shadow-lg transition-shadow flex flex-col justify-between ${item.colSpan} ${item.isImageCard ? 'overflow-hidden text-white' : 'bg-white'}`}
+          class={`group relative rounded-3xl overflow-hidden border border-gray-100 bg-white hover:shadow-lg transition-shadow flex flex-col justify-between p-6 ${item.colSpan} ${item.rowSpan ?? ''}`}
         >
-          {item.isImageCard && (
-            <div class="absolute inset-0">
-              <Image src={item.image} class="w-full h-full object-cover" alt={item.title} />
+          {item.image && (
+            <div
+              class="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+              aria-hidden="true"
+            >
+              <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${item.image}');`} />
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
             </div>
           )}
 
-          <div class="relative z-10 mb-4">
-            <span class={`text-3xl ${item.isImageCard ? 'text-white' : item.color}`}>{item.icon}</span>
-          </div>
+          <div class="relative z-10 mb-4">{item.icon && <span class={`text-3xl ${item.color}`}>{item.icon}</span>}</div>
 
           <div class="relative z-10">
-            <h3 class={`text-xl font-serif font-bold mb-2 ${item.isImageCard ? 'text-white' : 'text-gray-900'}`}>
+            <h3 class="text-xl font-serif font-bold mb-2 text-gray-900 group-hover:text-white transition-colors">
               {item.title}
             </h3>
-            <p class={`text-sm leading-relaxed ${item.isImageCard ? 'text-gray-200' : 'text-gray-500'}`}>
+            <p class="text-sm leading-relaxed text-gray-500 group-hover:text-gray-200 transition-colors">
               {item.description}
             </p>
           </div>
@@ -153,3 +187,13 @@ const industries = [
     </div>
   </div>
 </WidgetWrapper>
+
+<style>
+  .industries-tagline {
+    font-family: Inter, 'Inter Variable', ui-sans-serif, sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0;
+  }
+</style>
