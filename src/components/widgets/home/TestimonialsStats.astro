@@ -99,21 +99,40 @@ const stats = [
     </button>
   </div>
 
-  {/* Stats Divider Line */}
-  <div class="w-full h-px bg-gray-100 mb-12"></div>
-
   {/* Stats */}
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 border-t pt-12">
     {
-      stats.map((stat) => (
-        <div class="pt-8 md:pt-0">
-          <div class="text-5xl font-bold text-gray-900 mb-2">{stat.amount}</div>
-          <div class="text-gray-500 text-sm">{stat.label}</div>
+      stats.map((stat, index) => (
+        <div
+          class={`pt-8 md:pt-0 flex flex-col items-center justify-center border-l ${index === 0 ? 'border-l-0' : ''}`}
+        >
+          <div class="stat-amount text-gray-900 mb-2">{stat.amount}</div>
+          <div class="stat-label text-gray-500">{stat.label}</div>
         </div>
       ))
     }
   </div>
 </WidgetWrapper>
+
+<style>
+  .stat-amount {
+    font-family: Almarai, ui-sans-serif, sans-serif;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 150%;
+    letter-spacing: 0;
+    text-align: center;
+  }
+
+  .stat-label {
+    font-family: Almarai, ui-sans-serif, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0;
+    text-align: center;
+  }
+</style>
 
 <script>
   document.addEventListener('astro:page-load', () => {
