@@ -1,5 +1,6 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Image from '~/components/common/Image.astro';
 import { Icon } from 'astro-icon/components';
 
 const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
@@ -62,7 +63,7 @@ const stats = [
           >
             <p class="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8">"{item.quote}"</p>
             <div class="flex items-center gap-4 text-left">
-              <img src={item.image} alt={item.name} class="w-12 h-12 rounded-full object-cover" />
+              <Image src={item.image} alt={item.name} class="w-12 h-12 rounded-full object-cover" />
               <div>
                 <div class="font-bold text-gray-900">{item.name}</div>
                 <div class="text-sm text-gray-500">{item.role}</div>
