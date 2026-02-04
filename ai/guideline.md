@@ -4,7 +4,7 @@ This document outlines the standards, structure, and workflows for this project.
 
 ## 1. Project Overview
 
-This project is built using the **AstroWind** template, leveraging **Astro 5.0** and **Tailwind CSS**. It is designed for performance, SEO, and ease of customization.
+This project is built using the **Cognivac** template, leveraging **Astro 5.0** and **Tailwind CSS**. It is designed for performance, SEO, and ease of customization.
 
 ### Tech Stack
 

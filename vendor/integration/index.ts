@@ -63,9 +63,9 @@ export default ({ config: _themeConfig = 'src/config.yaml' } = {}): AstroIntegra
         if (typeof _themeConfig === 'string') {
           addWatchFile(new URL(_themeConfig, config.root));
 
-          buildLogger.info(`Astrowind \`${_themeConfig}\` has been loaded.`);
+          buildLogger.info(`Cognivac \`${_themeConfig}\` has been loaded.`);
         } else {
-          buildLogger.info(`Astrowind config has been loaded.`);
+          buildLogger.info(`Cognivac config has been loaded.`);
         }
       },
       'astro:config:done': async ({ config }) => {
