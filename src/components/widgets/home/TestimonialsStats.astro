@@ -142,7 +142,7 @@ const stats = [
     const nextBtn = document.getElementById('next-slide');
     let currentIndex = 0;
 
-    const showSlide = (index) => {
+    const showSlide = (index: number) => {
       slides.forEach((slide, i) => {
         if (i === index) {
           slide.classList.remove('opacity-0', 'z-0');
