@@ -3,23 +3,27 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
+      text: 'Cybersecurity',
+      href: '/cybersecurity',
+    },
+    {
       text: 'Services',
       links: [
         {
           text: 'AI Integration',
-          href: '#',
+          href: '/ai-integration',
         },
         {
           text: 'Custom Software',
-          href: '#',
+          href: '/custom-software',
         },
         {
           text: 'Mobile Apps',
-          href: '#',
+          href: '/mobile-apps',
         },
         {
           text: 'Cloud & Ops',
-          href: '#',
+          href: '/cloud-ops',
         },
       ],
     },
@@ -65,10 +69,7 @@ export const headerData = {
         },
       ],
     },
-    {
-      text: 'Cybersecurity',
-      href: '/cybersecurity',
-    },
+
     {
       text: 'About',
       href: '/about',

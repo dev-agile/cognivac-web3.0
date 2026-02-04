@@ -1,0 +1,360 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Mobile App Development | Cognivac — Think Beyond Digital',
+  description:
+    'Create stunning mobile applications for iOS and Android. Native and cross-platform development with modern technologies and beautiful user experiences.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Mobile Apps"
+    actions={[
+      { variant: 'primary', text: 'Launch Your Mobile App', href: '/contact' },
+      { text: 'Learn More', href: '#overview' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Mobile App Development',
+    }}
+  >
+    <Fragment slot="title">
+      Mobile Apps That <span class="text-accent dark:text-white">Engage and Delight</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Powered by <span class="font-semibold">Modern Mobile Technologies</span>. Designed for <span class="font-semibold"
+        >Exceptional User Experience</span
+      >.
+    </Fragment>
+  </Hero>
+
+  <!-- Platform Overview ************ -->
+
+  <Content
+    id="overview"
+    isReversed
+    items={[
+      {
+        title: 'Native & Cross-Platform',
+        description: 'Build native iOS and Android apps or cross-platform solutions with React Native and Flutter.',
+        icon: 'tabler:device-mobile',
+      },
+      {
+        title: 'Beautiful UI/UX',
+        description: 'Create intuitive, engaging user interfaces that provide exceptional user experiences.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Performance Optimized',
+        description: 'Apps built for speed, efficiency, and smooth performance across all devices.',
+        icon: 'tabler:gauge',
+      },
+      {
+        title: 'App Store Ready',
+        description: 'Complete development lifecycle from design to App Store and Play Store deployment.',
+        icon: 'tabler:brand-apple',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Mobile App Development Overview',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        A New Era of Mobile Experiences
+      </h3>
+      <p class="text-lg text-muted mb-4">
+        Your users don't need generic apps — they need <span class="font-semibold"
+          >beautiful design, smooth performance, and intuitive experiences</span
+        >.
+      </p>
+      <p class="text-muted">
+        Our <span class="font-semibold">Mobile App Development</span> services use <span class="font-semibold"
+          >cutting-edge mobile technologies</span
+        > to transform your ideas into a <span class="font-semibold"
+          >polished, performant, and user-friendly mobile application</span
+        >.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Mobile App Explanation ******* -->
+
+  <Features2
+    title="What Is Mobile App Development?"
+    subtitle="Apps that don't just function. They inspire."
+    columns={2}
+    items={[
+      {
+        title: 'User-Centered Design',
+        description: 'Mobile apps designed with users in mind, focusing on intuitive navigation and beautiful interfaces.',
+        icon: 'tabler:user',
+      },
+      {
+        title: 'Platform Expertise',
+        description: 'Deep knowledge of iOS, Android, and cross-platform frameworks for optimal results.',
+        icon: 'tabler:devices',
+      },
+      {
+        title: 'Performance First',
+        description: 'Optimized code and architecture ensure fast, responsive apps that users love.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Continuous Updates',
+        description: 'Ongoing maintenance, feature updates, and improvements to keep your app current.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Strategic Benefits *********** -->
+
+  <Stats
+    title="Faster Development. Better Performance. Higher Engagement."
+    stats={[
+      { title: 'Development Speed', amount: '50% Faster' },
+      { title: 'User Satisfaction', amount: '4.8/5' },
+      { title: 'App Performance', amount: '99.9%' },
+      { title: 'Platform Coverage', amount: 'iOS & Android' },
+    ]}
+  />
+
+  <Features3
+    columns={2}
+    items={[
+      {
+        title: 'Develop Apps 50% Faster',
+        description: 'Modern frameworks and proven methodologies accelerate development without sacrificing quality.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: '4.8/5 Average User Rating',
+        description: 'Beautiful design and smooth performance result in highly-rated apps users love.',
+        icon: 'tabler:star',
+      },
+      {
+        title: '99.9% Uptime & Performance',
+        description: 'Robust architecture and optimization ensure reliable, fast-performing applications.',
+        icon: 'tabler:gauge',
+      },
+      {
+        title: 'Native iOS & Android Support',
+        description: 'Build for both platforms simultaneously or choose native development for platform-specific features.',
+        icon: 'tabler:devices',
+      },
+    ]}
+  />
+
+  <!-- Key Platform Capabilities **** -->
+
+  <Features2
+    title="Key Development Capabilities"
+    subtitle="Enterprise-grade mobile development powered by modern technologies"
+    columns={3}
+    items={[
+      {
+        title: 'Native iOS Development',
+        description: 'Build native iOS apps with Swift and SwiftUI for optimal performance and platform integration.',
+        icon: 'tabler:brand-apple',
+      },
+      {
+        title: 'Native Android Development',
+        description: 'Create native Android apps with Kotlin and Jetpack Compose for modern Android experiences.',
+        icon: 'tabler:brand-android',
+      },
+      {
+        title: 'Cross-Platform Development',
+        description: 'Build once, deploy everywhere with React Native or Flutter for faster development.',
+        icon: 'tabler:brand-react',
+      },
+      {
+        title: 'UI/UX Design',
+        description: 'Create beautiful, intuitive interfaces with modern design principles and user research.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Backend Integration',
+        description: 'Seamlessly connect mobile apps with APIs, cloud services, and backend systems.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'App Store Optimization',
+        description: 'Optimize your app for App Store and Play Store with ASO best practices.',
+        icon: 'tabler:chart-bar',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Use Cases ******************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Consumer Mobile Apps',
+        description: 'Build engaging consumer apps for iOS and Android with beautiful design and smooth performance.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Enterprise Mobile Solutions',
+        description: 'Create mobile apps for internal business processes and employee productivity.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'E-Commerce Mobile Apps',
+        description: 'Develop mobile shopping experiences with seamless checkout and payment integration.',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'Social & Community Apps',
+        description: 'Build social platforms and community apps with real-time features and engagement tools.',
+        icon: 'tabler:message',
+      },
+      {
+        title: 'Health & Fitness Apps',
+        description: 'Create health tracking and fitness apps with wearable device integration.',
+        icon: 'tabler:heart',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Use Cases',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Use Cases</h3>
+      <p class="text-muted">
+        From consumer apps to enterprise solutions, our mobile development adapts to your unique requirements and target audience.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Why Choose Us **************** -->
+
+  <Features2
+    title="Why Choose Us?"
+    subtitle="Built by Mobile Experts. Powered by Modern Frameworks."
+    columns={3}
+    items={[
+      {
+        title: 'Adapts to Your Vision',
+        description: 'Mobile apps that evolve with your business goals and user feedback.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Learns from User Data',
+        description: 'Data-driven insights improve app features and user experience over time.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Enhances User Engagement',
+        description: 'Beautiful design and smooth performance keep users coming back.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Reduces Development Costs',
+        description: 'Efficient cross-platform development lowers costs for multi-platform apps.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Increases Time to Market',
+        description: 'Faster development cycles get your app to users sooner.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Improves App Quality',
+        description: 'Rigorous testing and quality assurance ensure bug-free, reliable apps.',
+        icon: 'tabler:target',
+      },
+    ]}
+  />
+
+  <!-- About / Vision / Mission ***** -->
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'About Us',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-4">
+        Built for the Future of Mobile
+      </h3>
+      <p class="text-lg font-semibold text-muted mb-4">
+        We're not just another mobile development company. We're experience creators.
+      </p>
+
+      <p class="text-muted mb-4">We started with a simple belief:</p>
+
+      <blockquote class="border-l-4 border-primary pl-4 italic text-lg text-muted mb-6">
+        Mobile apps shouldn't be clunky, slow, or hard to use.<br />
+        They should be beautiful. Fast. Effortless.
+      </blockquote>
+
+      <p class="text-muted mb-6">
+        So we built mobile app development services that transform ideas — powered by <span class="font-semibold"
+          >modern mobile technologies</span
+        > and design principles that create apps users love.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🌟 Our Vision</h4>
+      <p class="text-muted mb-4">
+        To create a world where <span class="font-semibold">mobile apps delight users</span> — so businesses can connect
+        with their audience in meaningful ways.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🎯 Our Mission</h4>
+      <p class="text-muted">
+        To revolutionize mobile experiences by merging beautiful design, modern technologies, performance optimization, and
+        user-centered development. We empower <span class="font-semibold">startups</span>, <span class="font-semibold"
+          >growing businesses</span
+        >, and <span class="font-semibold">enterprises</span> to create <span class="font-semibold"
+          >world-class mobile apps</span
+        >.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule a Demo',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'Learn More',
+        href: '/about',
+      },
+    ]}
+    title="Ready to Launch Your Mobile App?"
+    subtitle="Experience the power of modern mobile development. Contact us today to discuss your app idea."
+  />
+</Layout>
+

@@ -1,0 +1,360 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Custom Software Development | Cognivac — Think Beyond Digital',
+  description:
+    'Build custom software solutions tailored to your business needs. From web applications to enterprise systems, we deliver scalable, secure, and innovative software.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Custom Software"
+    actions={[
+      { variant: 'primary', text: 'Build Your Custom Solution', href: '/contact' },
+      { text: 'Learn More', href: '#overview' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Custom Software Development',
+    }}
+  >
+    <Fragment slot="title">
+      Custom Software Solutions for <span class="text-accent dark:text-white">Your Unique Needs</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Powered by <span class="font-semibold">Modern Technologies</span>. Designed for <span class="font-semibold"
+        >Scalable Growth</span
+      >.
+    </Fragment>
+  </Hero>
+
+  <!-- Platform Overview ************ -->
+
+  <Content
+    id="overview"
+    isReversed
+    items={[
+      {
+        title: 'Tailored Solutions',
+        description: 'Custom software built specifically for your business processes and requirements.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Scalable Architecture',
+        description: 'Build systems that grow with your business, handling increased load and complexity.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Modern Tech Stack',
+        description: 'Leverage cutting-edge technologies and best practices for optimal performance.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Agile Development',
+        description: 'Iterative development process that adapts to your needs and delivers value quickly.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Custom Software Overview',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        A New Era of Software Development
+      </h3>
+      <p class="text-lg text-muted mb-4">
+        Your business doesn't need generic solutions — it needs <span class="font-semibold"
+          >custom software, tailored architecture, and scalable systems</span
+        >.
+      </p>
+      <p class="text-muted">
+        Our <span class="font-semibold">Custom Software Development</span> services use <span class="font-semibold"
+          >modern technologies</span
+        > to transform your business requirements into a <span class="font-semibold"
+          >robust, scalable, and maintainable software ecosystem</span
+        >.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Custom Software Explanation ******* -->
+
+  <Features2
+    title="What Is Custom Software Development?"
+    subtitle="Software that doesn't just work. It transforms."
+    columns={2}
+    items={[
+      {
+        title: 'Business-Focused Design',
+        description: 'Software designed around your unique business processes and workflows.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Full-Stack Development',
+        description: 'End-to-end development from frontend to backend, databases, and integrations.',
+        icon: 'tabler:stack',
+      },
+      {
+        title: 'Quality Assurance',
+        description: 'Rigorous testing and quality control to ensure reliable, bug-free software.',
+        icon: 'tabler:check',
+      },
+      {
+        title: 'Ongoing Support',
+        description: 'Continuous maintenance, updates, and support to keep your software running smoothly.',
+        icon: 'tabler:lifebuoy',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Strategic Benefits *********** -->
+
+  <Stats
+    title="Better Performance. Faster Delivery. Lower Costs."
+    stats={[
+      { title: 'Development Speed', amount: '2x Faster' },
+      { title: 'Code Quality', amount: '99.9%' },
+      { title: 'Client Satisfaction', amount: '98%' },
+      { title: 'Project Success', amount: '100%' },
+    ]}
+  />
+
+  <Features3
+    columns={2}
+    items={[
+      {
+        title: 'Develop Solutions 2x Faster',
+        description: 'Agile methodologies and modern tools accelerate development without compromising quality.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: '99.9% Code Quality Assurance',
+        description: 'Comprehensive testing and code reviews ensure reliable, maintainable software.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Seamless Integration with Existing Systems',
+        description: 'Works with your current infrastructure, APIs, and third-party services out of the box.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Scale Without Technical Debt',
+        description: 'Clean architecture and best practices ensure your software grows without accumulating technical debt.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+  />
+
+  <!-- Key Platform Capabilities **** -->
+
+  <Features2
+    title="Key Development Capabilities"
+    subtitle="Enterprise-grade software development powered by modern technologies"
+    columns={3}
+    items={[
+      {
+        title: 'Web Application Development',
+        description: 'Build responsive, modern web applications with cutting-edge frameworks and technologies.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'API Development & Integration',
+        description: 'Create robust APIs and integrate with third-party services and existing systems.',
+        icon: 'tabler:api',
+      },
+      {
+        title: 'Database Design & Optimization',
+        description: 'Design efficient databases and optimize queries for performance and scalability.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Cloud-Native Solutions',
+        description: 'Build cloud-ready applications that leverage AWS, Azure, or GCP infrastructure.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Microservices Architecture',
+        description: 'Design and implement scalable microservices architectures for complex systems.',
+        icon: 'tabler:apps',
+      },
+      {
+        title: 'DevOps & CI/CD',
+        description: 'Set up automated deployment pipelines and DevOps practices for efficient delivery.',
+        icon: 'tabler:git-branch',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Use Cases ******************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Enterprise Applications',
+        description: 'Build comprehensive enterprise systems for large-scale business operations.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'E-Commerce Platforms',
+        description: 'Create custom e-commerce solutions with advanced features and integrations.',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'CRM & Business Management',
+        description: 'Develop custom CRM and business management systems tailored to your workflow.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Data Analytics Platforms',
+        description: 'Build platforms for data collection, analysis, and visualization.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Automation Systems',
+        description: 'Create software to automate business processes and workflows.',
+        icon: 'tabler:settings-automation',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Use Cases',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Use Cases</h3>
+      <p class="text-muted">
+        From enterprise applications to automation systems, our custom software adapts to your unique business challenges.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Why Choose Us **************** -->
+
+  <Features2
+    title="Why Choose Us?"
+    subtitle="Built by Expert Developers. Powered by Modern Technologies."
+    columns={3}
+    items={[
+      {
+        title: 'Adapts to Your Needs',
+        description: 'Software solutions that evolve with your business and changing requirements.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Learns from Experience',
+        description: 'Best practices refined through years of successful project delivery.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Enhances Team Productivity',
+        description: 'Software that streamlines workflows and empowers your team to do more.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Reduces Development Costs',
+        description: 'Efficient processes and reusable components lower overall development costs.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Increases Time to Market',
+        description: 'Faster development cycles get your product to market sooner.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Improves System Reliability',
+        description: 'Quality-focused development reduces bugs and system downtime.',
+        icon: 'tabler:target',
+      },
+    ]}
+  />
+
+  <!-- About / Vision / Mission ***** -->
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'About Us',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-4">
+        Built for the Future of Software
+      </h3>
+      <p class="text-lg font-semibold text-muted mb-4">
+        We're not just another development company. We're your technology partners.
+      </p>
+
+      <p class="text-muted mb-4">We started with a simple belief:</p>
+
+      <blockquote class="border-l-4 border-primary pl-4 italic text-lg text-muted mb-6">
+        Software shouldn't be generic, rigid, or hard to maintain.<br />
+        It should be custom. Scalable. Effortless.
+      </blockquote>
+
+      <p class="text-muted mb-6">
+        So we built custom software development services that transform business requirements — powered by <span class="font-semibold"
+          >modern technologies</span
+        > and best practices that deliver reliable, scalable solutions.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🌟 Our Vision</h4>
+      <p class="text-muted mb-4">
+        To create a world where <span class="font-semibold">software perfectly fits business needs</span> — so teams can focus
+        on growth and innovation.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🎯 Our Mission</h4>
+      <p class="text-muted">
+        To revolutionize software development by merging custom solutions, modern architecture, agile methodologies, and
+        quality-focused practices. We empower <span class="font-semibold">startups</span>, <span class="font-semibold"
+          >growing businesses</span
+        >, and <span class="font-semibold">enterprises</span> to operate with <span class="font-semibold"
+          >world-class software</span
+        >.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule a Demo',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'Learn More',
+        href: '/about',
+      },
+    ]}
+    title="Ready to Build Your Custom Software Solution?"
+    subtitle="Experience the power of tailored software development. Contact us today to discuss your project."
+  />
+</Layout>
+

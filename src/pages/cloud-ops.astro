@@ -1,0 +1,359 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Cloud & Operations Services | Cognivac — Think Beyond Digital',
+  description:
+    'Optimize your cloud infrastructure and operations. From cloud migration to DevOps automation, we ensure scalable, secure, and efficient cloud operations.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Cloud & Ops"
+    actions={[
+      { variant: 'primary', text: 'Optimize Your Cloud Infrastructure', href: '/contact' },
+      { text: 'Learn More', href: '#overview' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Cloud & Operations',
+    }}
+  >
+    <Fragment slot="title">
+      Cloud Infrastructure for <span class="text-accent dark:text-white">Scalable Growth</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Powered by <span class="font-semibold">Cloud-Native Technologies</span>. Designed for <span class="font-semibold"
+        >Reliable Operations</span
+      >.
+    </Fragment>
+  </Hero>
+
+  <!-- Platform Overview ************ -->
+
+  <Content
+    id="overview"
+    isReversed
+    items={[
+      {
+        title: 'Cloud Migration',
+        description: 'Seamlessly migrate your infrastructure to AWS, Azure, or GCP with minimal downtime.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'DevOps Automation',
+        description: 'Automate deployment, scaling, and management with CI/CD pipelines and infrastructure as code.',
+        icon: 'tabler:settings-automation',
+      },
+      {
+        title: 'Infrastructure Monitoring',
+        description: 'Real-time monitoring and alerting to ensure optimal performance and availability.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Cost Optimization',
+        description: 'Optimize cloud costs while maintaining performance and scalability.',
+        icon: 'tabler:coin',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Cloud & Operations Overview',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        A New Era of Cloud Operations
+      </h3>
+      <p class="text-lg text-muted mb-4">
+        Your infrastructure doesn't need complexity — it needs <span class="font-semibold"
+          >automation, scalability, and reliability</span
+        >.
+      </p>
+      <p class="text-muted">
+        Our <span class="font-semibold">Cloud & Operations Services</span> use <span class="font-semibold"
+          >cloud-native technologies</span
+        > to transform traditional infrastructure into a <span class="font-semibold"
+          >scalable, automated, and cost-efficient cloud ecosystem</span
+        >.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Cloud Ops Explanation ******* -->
+
+  <Features2
+    title="What Is Cloud & Operations?"
+    subtitle="Infrastructure that doesn't just run. It optimizes."
+    columns={2}
+    items={[
+      {
+        title: 'Infrastructure as Code',
+        description: 'Manage infrastructure programmatically for consistency, version control, and automation.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Automated Scaling',
+        description: 'Auto-scaling infrastructure that adapts to load changes automatically.',
+        icon: 'tabler:arrows-up-down',
+      },
+      {
+        title: 'Continuous Deployment',
+        description: 'Automated CI/CD pipelines for fast, reliable deployments with zero downtime.',
+        icon: 'tabler:git-branch',
+      },
+      {
+        title: '24/7 Monitoring',
+        description: 'Comprehensive monitoring and alerting to ensure system health and performance.',
+        icon: 'tabler:eye',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Strategic Benefits *********** -->
+
+  <Stats
+    title="Higher Uptime. Lower Costs. Faster Deployments."
+    stats={[
+      { title: 'Uptime SLA', amount: '99.99%' },
+      { title: 'Cost Reduction', amount: '35%' },
+      { title: 'Deployment Speed', amount: '10x Faster' },
+      { title: 'Infrastructure Efficiency', amount: '90%' },
+    ]}
+  />
+
+  <Features3
+    columns={2}
+    items={[
+      {
+        title: '99.99% Uptime SLA',
+        description: 'Highly available infrastructure with redundancy and failover mechanisms.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Reduce Cloud Costs by 35%',
+        description: 'Optimize resource usage and leverage reserved instances to lower costs.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Deploy 10x Faster',
+        description: 'Automated CI/CD pipelines enable rapid, reliable deployments.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: '90% Infrastructure Efficiency',
+        description: 'Right-sized resources and auto-scaling ensure optimal resource utilization.',
+        icon: 'tabler:gauge',
+      },
+    ]}
+  />
+
+  <!-- Key Platform Capabilities **** -->
+
+  <Features2
+    title="Key Cloud Capabilities"
+    subtitle="Enterprise-grade cloud operations powered by modern technologies"
+    columns={3}
+    items={[
+      {
+        title: 'Cloud Migration Services',
+        description: 'Plan and execute seamless migrations to AWS, Azure, or GCP with minimal disruption.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Container Orchestration',
+        description: 'Deploy and manage containerized applications with Kubernetes and Docker.',
+        icon: 'tabler:container',
+      },
+      {
+        title: 'CI/CD Pipeline Setup',
+        description: 'Build automated deployment pipelines with Jenkins, GitLab CI, or GitHub Actions.',
+        icon: 'tabler:git-branch',
+      },
+      {
+        title: 'Infrastructure Monitoring',
+        description: 'Monitor infrastructure health, performance, and costs with comprehensive dashboards.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Security & Compliance',
+        description: 'Implement security best practices and compliance frameworks for cloud infrastructure.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Disaster Recovery',
+        description: 'Design and implement backup and disaster recovery solutions for business continuity.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Use Cases ******************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Cloud Migration',
+        description: 'Migrate legacy systems to the cloud with minimal downtime and risk.',
+        icon: 'tabler:cloud-upload',
+      },
+      {
+        title: 'DevOps Transformation',
+        description: 'Transform your development and operations with modern DevOps practices and tools.',
+        icon: 'tabler:settings',
+      },
+      {
+        title: 'Microservices Architecture',
+        description: 'Design and deploy scalable microservices architectures on cloud platforms.',
+        icon: 'tabler:apps',
+      },
+      {
+        title: 'Multi-Cloud Strategy',
+        description: 'Implement multi-cloud solutions for redundancy and vendor flexibility.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Cost Optimization',
+        description: 'Analyze and optimize cloud spending while maintaining performance and reliability.',
+        icon: 'tabler:chart-bar',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Use Cases',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Use Cases</h3>
+      <p class="text-muted">
+        From cloud migration to DevOps transformation, our cloud services adapt to your unique infrastructure needs.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Why Choose Us **************** -->
+
+  <Features2
+    title="Why Choose Us?"
+    subtitle="Built by Cloud Experts. Powered by Best Practices."
+    columns={3}
+    items={[
+      {
+        title: 'Adapts to Your Infrastructure',
+        description: 'Cloud solutions that evolve with your business and technology needs.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Learns from Operations',
+        description: 'Continuous optimization based on performance data and operational insights.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Enhances Team Efficiency',
+        description: 'Automation and tooling free your team from manual operational tasks.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Reduces Operational Costs',
+        description: 'Optimized infrastructure and automation lower ongoing operational expenses.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Increases Deployment Speed',
+        description: 'Faster deployments and releases with automated CI/CD pipelines.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Improves System Reliability',
+        description: 'High availability and monitoring ensure reliable, resilient infrastructure.',
+        icon: 'tabler:target',
+      },
+    ]}
+  />
+
+  <!-- About / Vision / Mission ***** -->
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'About Us',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-4">
+        Built for the Future of Cloud Operations
+      </h3>
+      <p class="text-lg font-semibold text-muted mb-4">
+        We're not just another cloud services company. We're infrastructure partners.
+      </p>
+
+      <p class="text-muted mb-4">We started with a simple belief:</p>
+
+      <blockquote class="border-l-4 border-primary pl-4 italic text-lg text-muted mb-6">
+        Infrastructure shouldn't be manual, expensive, or unreliable.<br />
+        It should be automated. Scalable. Effortless.
+      </blockquote>
+
+      <p class="text-muted mb-6">
+        So we built cloud and operations services that transform infrastructure — powered by <span class="font-semibold"
+          >cloud-native technologies</span
+        > and best practices that ensure reliable, scalable operations.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🌟 Our Vision</h4>
+      <p class="text-muted mb-4">
+        To create a world where <span class="font-semibold">infrastructure runs itself</span> — so teams can focus on
+        building great products.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🎯 Our Mission</h4>
+      <p class="text-muted">
+        To revolutionize cloud operations by merging automation, scalability, reliability, and cost optimization. We empower
+        <span class="font-semibold">startups</span>, <span class="font-semibold">growing businesses</span>, and <span
+          class="font-semibold"
+          >enterprises</span
+        > to operate with <span class="font-semibold">world-class cloud infrastructure</span>.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule a Demo',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'Learn More',
+        href: '/about',
+      },
+    ]}
+    title="Ready to Optimize Your Cloud Infrastructure?"
+    subtitle="Experience the power of automated cloud operations. Contact us today to discuss your infrastructure needs."
+  />
+</Layout>
+

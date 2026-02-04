@@ -1,0 +1,360 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'AI Integration Services | Cognivac — Think Beyond Digital',
+  description:
+    'Transform your business with intelligent AI integration. Seamlessly connect AI capabilities into your existing systems and workflows. Experience the future of intelligent automation.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="AI Integration"
+    actions={[
+      { variant: 'primary', text: 'Transform Your Business with AI', href: '/contact' },
+      { text: 'Learn More', href: '#overview' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'AI Integration',
+    }}
+  >
+    <Fragment slot="title">
+      Seamless AI Integration for a <span class="text-accent dark:text-white">Smarter Future</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Powered by <span class="font-semibold">Advanced AI Technologies</span>. Designed for <span class="font-semibold"
+        >Intelligent Automation</span
+      >.
+    </Fragment>
+  </Hero>
+
+  <!-- Platform Overview ************ -->
+
+  <Content
+    id="overview"
+    isReversed
+    items={[
+      {
+        title: 'Seamless Integration',
+        description: 'Connect AI capabilities into your existing systems without disrupting your workflow.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Intelligent Automation',
+        description: 'Automate complex processes with AI that learns and adapts to your business needs.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'Data-Driven Insights',
+        description: 'Transform raw data into actionable insights with advanced AI analytics.',
+        icon: 'tabler:chart-bar',
+      },
+      {
+        title: 'Scalable Solutions',
+        description: 'Build AI systems that grow with your business and adapt to changing requirements.',
+        icon: 'tabler:trending-up',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1555255707-c07966088b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'AI Integration Overview',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        A New Era of Intelligent Business
+      </h3>
+      <p class="text-lg text-muted mb-4">
+        Your business doesn't need more complexity — it needs <span class="font-semibold"
+          >intelligence, automation, and seamless integration</span
+        >.
+      </p>
+      <p class="text-muted">
+        Our <span class="font-semibold">AI Integration Services</span> use <span class="font-semibold"
+          >cutting-edge AI technologies</span
+        > to transform traditional business processes into a <span class="font-semibold"
+          >self-improving, intelligent ecosystem</span
+        >.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- AI Integration Explanation ******* -->
+
+  <Features2
+    title="What Is AI Integration?"
+    subtitle="AI that doesn't just assist. It transforms."
+    columns={2}
+    items={[
+      {
+        title: 'Intelligent System Integration',
+        description: 'Seamlessly connect AI capabilities with your existing infrastructure and workflows.',
+        icon: 'tabler:network',
+      },
+      {
+        title: 'Context-Aware Automation',
+        description: 'AI systems that understand your business context and make intelligent decisions.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Real-Time Processing',
+        description: 'Process and analyze data in real-time for instant insights and responses.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Continuous Learning',
+        description: 'AI systems that improve over time, learning from every interaction and data point.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Strategic Benefits *********** -->
+
+  <Stats
+    title="Smarter Operations. Higher Efficiency. Better Outcomes."
+    stats={[
+      { title: 'Process Automation', amount: '85%' },
+      { title: 'Response Time', amount: 'Real-Time' },
+      { title: 'Cost Reduction', amount: '40%' },
+      { title: 'Accuracy Improvement', amount: '95%' },
+    ]}
+  />
+
+  <Features3
+    columns={2}
+    items={[
+      {
+        title: 'Automate Up to 85% of Repetitive Tasks',
+        description: 'AI-powered automation handles routine processes, freeing your team for strategic work.',
+        icon: 'tabler:settings-automation',
+      },
+      {
+        title: 'Real-Time Decision Making',
+        description: 'Get instant insights and automated responses to keep your business ahead of the curve.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Seamless Integration with Existing Systems',
+        description: 'Works with your current software stack, cloud platforms, and business tools out of the box.',
+        icon: 'tabler:plug',
+      },
+      {
+        title: 'Scale Without Increasing Complexity',
+        description: 'AI systems that grow with your business, handling increased load without proportional cost increases.',
+        icon: 'tabler:growth',
+      },
+    ]}
+  />
+
+  <!-- Key Platform Capabilities **** -->
+
+  <Features2
+    title="Key Integration Capabilities"
+    subtitle="Enterprise-grade AI integration powered by advanced technologies"
+    columns={3}
+    items={[
+      {
+        title: 'Natural Language Processing',
+        description: 'Integrate conversational AI, chatbots, and language understanding into your applications.',
+        icon: 'tabler:message',
+      },
+      {
+        title: 'Computer Vision Integration',
+        description: 'Add image recognition, object detection, and visual analytics to your systems.',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Predictive Analytics',
+        description: 'Forecast trends, predict outcomes, and make data-driven decisions with AI-powered analytics.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Recommendation Engines',
+        description: 'Build intelligent recommendation systems that personalize experiences for your users.',
+        icon: 'tabler:star',
+      },
+      {
+        title: 'Anomaly Detection',
+        description: 'Identify unusual patterns and potential issues before they impact your business.',
+        icon: 'tabler:alert-triangle',
+      },
+      {
+        title: 'Intelligent Document Processing',
+        description: 'Automate document extraction, classification, and data entry with AI-powered OCR and NLP.',
+        icon: 'tabler:file-text',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Use Cases ******************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Customer Service Automation',
+        description: 'Deploy AI chatbots and virtual assistants to handle customer inquiries 24/7.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Business Process Automation',
+        description: 'Automate workflows, approvals, and routine tasks across your organization.',
+        icon: 'tabler:settings-automation',
+      },
+      {
+        title: 'Data Analytics & Insights',
+        description: 'Transform data into actionable insights with AI-powered analytics and reporting.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Content Generation',
+        description: 'Integrate AI for automated content creation, summarization, and personalization.',
+        icon: 'tabler:writing',
+      },
+      {
+        title: 'Fraud Detection',
+        description: 'Protect your business with AI-powered fraud detection and risk assessment.',
+        icon: 'tabler:shield-check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'Use Cases',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Use Cases</h3>
+      <p class="text-muted">
+        From customer service automation to predictive analytics, our AI integration adapts to your unique business needs.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- Why Choose Us **************** -->
+
+  <Features2
+    title="Why Choose Us?"
+    subtitle="Built by AI Experts. Powered by Advanced Technologies."
+    columns={3}
+    items={[
+      {
+        title: 'Adapts to Your Business',
+        description: 'AI solutions that evolve with your organization and changing requirements.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Learns Continuously',
+        description: 'AI systems that improve with every interaction and data point.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Enhances Productivity',
+        description: 'Automate repetitive tasks so your team can focus on strategic initiatives.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Reduces Operational Costs',
+        description: 'Lower costs through intelligent automation and improved efficiency.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Increases Efficiency',
+        description: 'Faster processing, instant insights, and automated decision-making.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Improves Accuracy',
+        description: 'AI-driven analysis reduces errors and improves decision quality.',
+        icon: 'tabler:target',
+      },
+    ]}
+  />
+
+  <!-- About / Vision / Mission ***** -->
+
+  <Content
+    isReversed
+    image={{
+      src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      alt: 'About Us',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-4">
+        Built for the Future of Intelligent Business
+      </h3>
+      <p class="text-lg font-semibold text-muted mb-4">
+        We're not just another AI company. We're transformation partners.
+      </p>
+
+      <p class="text-muted mb-4">We started with a simple belief:</p>
+
+      <blockquote class="border-l-4 border-primary pl-4 italic text-lg text-muted mb-6">
+        Business processes shouldn't be slow, manual, or inefficient.<br />
+        They should be intelligent. Automated. Effortless.
+      </blockquote>
+
+      <p class="text-muted mb-6">
+        So we built AI integration services that transform traditional business operations — powered by <span class="font-semibold"
+          >advanced AI technologies</span
+        > that think, learn, and act at machine speed.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🌟 Our Vision</h4>
+      <p class="text-muted mb-4">
+        To create a world where <span class="font-semibold">business operations run intelligently</span> — so teams can focus
+        on innovation and growth.
+      </p>
+
+      <h4 class="text-xl font-bold tracking-tight dark:text-white mb-3">🎯 Our Mission</h4>
+      <p class="text-muted">
+        To revolutionize business operations by merging AI integration, intelligent automation, data-driven insights, and
+        seamless system connectivity. We empower <span class="font-semibold">startups</span>, <span class="font-semibold"
+          >growing businesses</span
+        >, and <span class="font-semibold">enterprises</span> to operate like <span class="font-semibold"
+          >AI-powered organizations</span
+        >.
+      </p>
+    </Fragment>
+  </Content>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule a Demo',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'Learn More',
+        href: '/about',
+      },
+    ]}
+    title="Ready to Transform Your Business with AI?"
+    subtitle="Experience the power of intelligent automation and seamless AI integration. Contact us today to see how we can help."
+  />
+</Layout>
+
