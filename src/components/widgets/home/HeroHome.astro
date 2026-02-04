@@ -1,6 +1,6 @@
 ---
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import { Icon } from 'astro-icon/components';
+// import { Icon } from 'astro-icon/components';
 
 const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
 ---
@@ -68,7 +68,7 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
 </WidgetWrapper>
 
 {/* Client Logos Strip (Full Width) */}
-<div class="mt-16 pt-8 border-t border-gray-100 w-full">
+<!-- <div class="mt-16 pt-8 border-t border-gray-100 w-full">
   <div class="max-w-7xl mx-auto px-4 md:px-6">
     <div
       class="flex flex-wrap items-center justify-between gap-6 md:gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500"
@@ -95,7 +95,7 @@ const { id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } 
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 {/* Gradient fade below logos (Full Width) */}
 <div class="hero-logos-gradient h-16 w-full shrink-0" aria-hidden="true"></div>
