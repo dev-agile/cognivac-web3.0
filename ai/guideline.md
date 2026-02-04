@@ -7,6 +7,7 @@ This document outlines the standards, structure, and workflows for this project.
 This project is built using the **AstroWind** template, leveraging **Astro 5.0** and **Tailwind CSS**. It is designed for performance, SEO, and ease of customization.
 
 ### Tech Stack
+
 - **Framework**: Astro 5.x (`static` output)
 - **Styling**: Tailwind CSS 3.4
 - **Language**: TypeScript
@@ -32,7 +33,9 @@ The `src` directory is organized as follows:
 ## 3. Configuration & Customization
 
 ### Global Theme (Colors & Fonts)
+
 Do **not** hardcode colors in Tailwind config if they are meant to be themable. Instead, edit **`src/components/CustomStyles.astro`**:
+
 ```css
 :root {
   --aw-color-primary: rgb(1 97 239);
@@ -40,30 +43,37 @@ Do **not** hardcode colors in Tailwind config if they are meant to be themable. 
   /* ... */
 }
 ```
+
 These are exposed as Tailwind colors: `primary`, `secondary`, `accent`, `default`, `muted`, `page`.
 
 ### Site Metadata
+
 Edit **`src/config.yaml`** to change:
+
 - Site name and URL.
 - SEO title templates and descriptions.
 - Analytics IDs.
 - Feature flags (enable/disable blog).
 
 ### Navigation
+
 Edit **`src/navigation.ts`** to modify the Header links and Footer columns.
 
 ## 4. Coding Standards
 
 ### TypeScript
+
 - Use strict typing.
 - Use the `~/` path alias to import from `src`. Example: `import Hero from '~/components/widgets/Hero.astro';`.
 
 ### Components
+
 - **Preferred Pattern**: Build pages by composing `widgets`.
 - **Props**: Define refined interfaces for props.
 - **Images**: Use Astro's `<Image />` component or the project's `Image` adapter where appropriate.
 
 ### Styling
+
 - **Tailwind**: Use utility classes for almost everything.
 - **Dark Mode**: Supported via the `dark` class. Use `dark:` variants in Tailwind.
 - **Responsive**: Use `md:`, `lg:` prefixes. Mobile-first approach.
@@ -77,18 +87,20 @@ When performing tasks in this codebase, adhere to these rules:
 3.  **Component Hierarchy**: If asked to create a new section, place it in `src/components/widgets`. If it's a small reusable element, place it in `src/components/ui`.
 4.  **Icons**: Use `astro-icon`. Example: `<Icon name="tabler:home" />`. Use `tabler` icons by default unless requested otherwise.
 5.  **New Pages**: When creating a new page, use the standard layout:
+
     ```astro
     ---
     import Layout from '~/layouts/PageLayout.astro';
     import Hero from '~/components/widgets/Hero.astro';
-    
+
     const metadata = { title: 'New Page' };
     ---
-    
+
     <Layout metadata={metadata}>
       <Hero ... />
     </Layout>
     ```
+
 6.  **Formatting**: Ensure code is Prettier-compliant (single quotes, 2 spaces, semi-colons).
 
 ## 6. Common Commands
